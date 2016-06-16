@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta charset="utf8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no, address=no">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/base.css">
+<title>绝味鸭脖</title>
+</head>
+<body class="share_bd">
+<div class="share_box">
+	<img src="images/share_txt.png" class="share_txt" >
+	<ul class="form_list">
+		<li><input type="number" class="phone_txt" placeholder="请输入手机号" data-phone="true" ></li>
+		<li><input type="number" class="code_txt" placeholder="请输入验证码" data-code="true" ><span class="btn_get_code" id="getCode">获取验证码</span></li>
+		<li><span class="btn_submit" id="submitValue">确认领取</span></li>
+	</ul>
+	<div class="user_box">
+		<span class="btn_submit" id="userCoupon">已领取，立即使用</span>
+	</div>
+	<div class="pop_code">
+		<div class="pop_box">
+			<img data-src="images/qrcode_img.png" id="qrcodeImg" >
+			<span class="pop_txt">长安二维码，限时使用</span>
+		</div>
+		<span class="pop_close"></span>
+	</div>
+	<div class="rule_box">
+		<img src="images/share_rule_tit.png" class="tit" id="ruleTitle" >
+		<img src="images/share_rule_des.png" class="des" id="ruleDes" >
+	</div>
+</div>
+<script src="js/zepto.js"></script>
+<script src="js/base.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?6a84cb553f649d86e207e17fa6621cf8";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>

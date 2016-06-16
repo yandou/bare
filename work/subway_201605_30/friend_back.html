@@ -1,0 +1,388 @@
+<html>
+<head>
+<meta charset="utf8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no, address=no">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<link rel="stylesheet" href="css/sm.min.css">
+<link rel="stylesheet" href="css/reset.css">
+<title>绝味鸭脖</title>
+<style>
+	@media screen and (min-width: 1080px) {
+	    html {
+	        width: 1080px;
+	    }
+	}
+	input{
+		width: 100%;
+		height: 100%;
+		border: 1px solid #f6a89c;
+		padding: 0.5rem 0.5rem;
+		text-align: center;
+		letter-spacing: 2px;
+		background: rgba(255,255,255,.8)
+	}
+	.content {
+		width: 100%;
+		height: 100%;
+		background: url("img/bg.jpg?v1.0") no-repeat left top;
+		background-size: 100%;
+	}
+	.icon-info {
+		position: absolute;
+	    right: 0rem;
+	    top: 1.6rem;
+	    width: 4.6rem;
+	    height: 2rem;
+	    font-size: 0.75rem;
+	    text-align: right;
+	    padding-right: 0.5rem;
+	    padding-left: 1rem;
+	    background: url("img/0014.png") no-repeat left 1px;
+	    background-size: 1rem;
+	}
+	.coupon-info {
+		display: none;
+		position: absolute;
+		top: 28%;
+		left: 0;
+		right: 0;
+		margin: auto;
+		width: 14rem;
+		border-radius: 0.25rem;
+		padding: 0.35rem 0.75rem 0.5rem 0.75rem;
+		font-size: 0.8rem;
+		background: #fff;
+		z-index: 10;
+	}
+	.coupon-info h2 {
+		color: #333;
+	}
+	.coupon-info dl {
+		color: #999;
+		overflow: hidden;
+		margin: 0.25rem 0;
+	}
+	.coupon-info dt, .coupon-info dd {
+		float: left;
+		/*width: 10%;*/
+	}
+	.coupon-info dd {
+		/*width: 90%;*/
+	}
+
+	.coupon-con, .coupon-con-wb {
+		position: absolute;
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		text-align: center;
+	}
+	.coupon-con-wb div:nth-child(1){
+		position: relative;
+	}
+	.coupon-con-wb div:nth-child(1)>img{
+		width: 78%;
+		margin: 0 auto 0.5rem auto;
+	}
+	.coupon-con-wb div:nth-child(1)>div{
+		position: absolute;
+		bottom: 14%;
+		left: 18%;
+		width: 64%;
+		margin-left: 1px;
+		background: rgba(255,255,255,0);
+		-webkit-animation-name: Pulse; 
+		-webkit-animation-duration: 1s;
+		-webkit-animation-iteration-count: infinite;
+		border-radius: 0.5rem;
+	}
+	.coupon-con-wb div:nth-child(1) img{
+		display: block;
+	}
+	.coupon-con-wb div:nth-child(2) {
+		width: 80%;
+		margin: 0 auto 0.5rem auto;
+	}
+	.coupon-con div:nth-child(2) {
+		margin: 0.5rem 0;
+		color: #999;
+		font-size: 0.8rem;
+	}
+	.coupon-con div:nth-child(3) span {
+		float: left;
+		width: 5rem;
+		height: 2rem;
+		line-height: 2rem;
+		color: #fff;
+		border-radius: 0.25rem;
+	}
+	.coupon-con div:nth-child(3) span:nth-child(1) {
+		background: #f0d337;		
+	}
+	.coupon-con div:nth-child(3) span:nth-child(2) {
+		float: right;
+		background: #f7a398;		
+	}
+	/*箭头动画*/
+	.conpon-ta-share-arrowhead {
+		z-index: 15;
+		width: 50%;
+		position: absolute;
+		right: 50%;
+		top: 60%;
+		-webkit-animation: arrowhead 2s ease-out 1s forwards,bimg1 2s ease-in 1s forwards,bimg2 2s ease-out 1s forwards,arrowhead_cf 0.3s ease 3.01s infinite;
+		opacity: 0;
+		-webkit-opacity: 0;
+		-webkit-animation-direction: alternate;
+	}
+	@-webkit-keyframes bimg1 {
+      0% {top: 60%;}
+      100% {top: 0;}
+	}
+	@-webkit-keyframes bimg2 {
+	  0%  {right:50%;}
+	  100% {right:0;}
+	}
+	@-webkit-keyframes arrowhead {
+	  from { -webkit-opacity: 0; }
+	  to { -webkit-opacity: 1;}
+	}
+	@-webkit-keyframes arrowhead_cf {
+		0% {
+			-webkit-transform: translateY(0);
+			transform: translate(0,0);
+		}
+		100% {
+			-webkit-transform: translateY(5px);
+			transform: translateY(5px);
+		}
+	}
+	/*分享文字动画*/
+	.conpon-ta-share-info {
+		-webkit-animation: info 2s ease 0s 1;
+		-webkit-animation-direction: alternate;
+		animation-direction: alternate;
+	}
+	/*文字动画*/
+	@-webkit-keyframes info {
+		0% {
+			-webkit-transform: rotateZ(-16deg);
+			transform: rotateZ(-16deg);
+		}
+		50% {
+			-webkit-transform: rotateZ(16deg);
+			transform: rotateZ(16deg);
+		}
+		100% {
+			-webkit-transform: rotateZ(0deg);
+			transform: rotateZ(0deg);
+		}
+	}
+	/*弹幕*/
+	.mybarrage{
+		position: absolute;
+		width: 100%;
+		height: 50%;
+		top: 0.8rem;
+		left: 0;
+		z-index: 1;
+		overflow: hidden;
+	}
+	.mybarrage>img{
+		display: block;
+		width: 100%;
+		margin-left: 100%;
+		-webkit-animation-name: Barrage; 
+		-webkit-animation-duration: 5s;
+		-webkit-animation-timing-function:linear;
+		-webkit-animation-iteration-count: infinite;
+	}
+	.mybarrage>img:nth-of-type(1){
+		-webkit-animation-duration: 5s;
+	}
+	.mybarrage>img:nth-of-type(2){
+		-webkit-animation-duration: 3s;
+	}
+	.mybarrage>img:nth-of-type(3){
+		-webkit-animation-duration: 1.5s;
+	}
+	.mybarrage>img:nth-of-type(4){
+		-webkit-animation-duration: 2s;
+		-webkit-animation-delay:1s;
+	}
+	.mybarrage>img:nth-of-type(5){
+		-webkit-animation-duration: 3.5s;
+	}
+	.mybarrage>img:nth-of-type(6){
+		-webkit-animation-duration: 5s;
+	}
+	.mybarrage>img:nth-of-type(7){
+		-webkit-animation-duration: 3s;
+	}
+	.mybarrage>img:nth-of-type(8){
+		-webkit-animation-duration: 7s;
+	}
+	.mybarrage>img:nth-of-type(9){
+		-webkit-animation-duration: 1s;
+		-webkit-animation-delay:1s;
+	}
+	.mybarrage>img:nth-of-type(10){
+		-webkit-animation-duration: 6.5s;
+	}
+	/*文字动画*/
+	@-webkit-keyframes Barrage {
+	  from { margin-left: 100%;}
+	  to {margin-left: -100%;}
+	}
+	.barrage{
+		position: absolute;
+	}
+</style>
+
+</head>
+<body>
+	<div class="page page-current" id="index">
+		<div class="content" style="overflow-x: hidden;">
+			<div class="conpon-ta-share-arrowhead"><img src="img/0040.png" alt=""></div>
+			<div class="mybarrage">
+				<img src="img/0041.png">
+				<img src="img/0042.png">
+				<img src="img/0043.png">
+				<img src="img/0044.png">
+				<img src="img/0045.png">
+				<img src="img/0046.png">
+				<img src="img/0047.png">
+				<img src="img/0048.png">
+				<img src="img/0049.png">
+				<img src="img/0050.png">
+			</div>
+			<!-- 第二步 -->
+			<div class="coupon-con-wb">
+				<div>
+					<img src="img/sz/03.png" alt="">
+				</div>
+				<div><img src="img/explain_f.png" alt=""></div>
+			</div>
+		</div>
+	</div>
+	<script src="js/zepto.js"></script>
+	<script src="js/sm.min.js"></script>
+	<script src="js/common.js"></script>
+	<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+	<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+		$(function(){
+			if(!$.os.phone && !$.os.tablet) {
+				$("html,body").css({"width":"640","margin":"0 auto"});
+				$(".icon-info").css({"top":"2.2rem"})
+			}
+			var windowInnerHeight,timer,openID = 0,nick_name,head_img,channel,userId,wx_config = {},c_id,num=59;
+			wx_config = {
+				link: url + "/getoauth.php?url=/subway/friend.html&h=index",
+				imgUrl: 'http://'+location.host+'/H5/subway/img/0007.jpg?v1.0',
+				title: "重庆地铁惊现欧洲杯二维码",
+				desc: "听说全重庆只有1%的人能扫到这个码。",
+				// 朋友
+				onMSAMTri: function(){
+					// 触发分享后回调  统计
+					tongjiApi.query({"tag":"分享朋友触发/523"})
+				},
+				onMSAMSuc: function(){
+					// 分享成功后回调  统计
+					tongjiApi.query({"tag":"分享朋友成功/523"})
+				},
+				onMSAMCan: function(){
+					// 分享取消后回调  统计
+					tongjiApi.query({"tag":"分享朋友取消/523"})
+				},
+				onMSAMFail: function(){
+					// 分享失败后回调  统计
+					tongjiApi.query({"tag":"分享朋友失败/523"})
+				},
+				// 朋友圈
+				onMSTLTri: function(){
+					// 触发分享后回调  统计
+					tongjiApi.query({"tag":"分享朋友圈触发/523"})
+				},
+				onMSTLSuc: function(){
+					// 分享成功后回调  统计
+					tongjiApi.query({"tag":"分享朋友圈成功/523"})
+				},
+				onMSTLCan: function(){
+					// 分享取消后回调  统计
+					tongjiApi.query({"tag":"分享朋友圈取消/523"})
+				},
+				onMSTLFail: function(){
+					// 分享失败后回调  统计
+					tongjiApi.query({"tag":"分享朋友圈失败/523"})
+				},
+			};
+			// if(!GetQueryString("openid")){
+			// 	$.alert("参数错误");
+			// 	return
+			// }
+			channel = $.device.isWeixin ? "" : "weibo";				// 渠道
+			// 再次授权
+			if(!GetQueryString("nickname") && channel != "weibo"){
+				var fre = sessionStorage.getItem("fre") || 0;
+				fre = parseInt(fre)+1;
+				if(fre < 3){
+					sessionStorage.setItem("fre",fre);
+					location = url + 'getoauth.php?url=/subway/friend.html&h=index';
+				}
+			}
+			if (GetQueryString("openid")) {
+				openID = GetQueryString("openid").replace(/#.{0,10}/,""); 	// id
+				nick_name = GetQueryString("nickname") && decodeURI(GetQueryString("nickname"));	// 名字
+				head_img = GetQueryString("headimgurl") && GetQueryString("headimgurl").replace(/#.+/,"");	// 头像
+			}
+			
+		    if(channel != "weibo"){
+		    	$(".conpon-ta-share-arrowhead").show();
+	    	}
+		    
+		    // 路由管理
+		    $(document).on("pageAnimationStart", function(e, pageId, $page) {
+		    	// 初始化动画
+			  	if(pageId == "friend") {
+			  		
+			  	}else if(pageId == "friends") {
+			  		
+			  	}
+			});
+			
+			//弹幕
+			/*$('.mybarrage').on('webkitAnimationIteration','img',function(){
+			    var num=RandomNum(41,50);
+			    var img='img/00'+num+'.png';
+				$(this).attr('src',img);
+			},false)
+			function RandomNum(Min,Max){
+				var Range = Max - Min;
+				var Rand = Math.random();   
+				var num = Min + Math.round(Rand * Range);
+				return num;
+			}*/
+			$.init();
+		    wx_init(wx_config);
+		})
+	</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?6a84cb553f649d86e207e17fa6621cf8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=640,target-densitydpi=device-dpi,user-scalable=no" />
+<title>神之遗迹</title>
+<meta name="keywords" content="神之遗迹" />
+<meta name="description" content="神之遗迹" />
+<link rel="stylesheet" href="css/base.css" id="css_ele" data-load-css="css/swiper.min.css">
+<link type="image/x-icon" rel="icon" href="favicon.ico">
+</head>
+<body>
+<!--加载层*****开始-->
+<div class="loading_page">
+    <p class="loading_page_txt"><img src="images/loading.gif" /></p>
+</div>
+<!--加载层*****结束-->
+
+<!--主体*****开始-->
+<div class="wrap edit_wrap">    
+    <h1 class="edit_title">填写领奖信息</h1>
+    <div class="edit_main">
+        <form action="confirm_info.html" method="post" id="form_edit">
+            <p class="tc f20 c_fff">请填写正确的三位队员的姓名和手机号码，以便接收奖品。</p>
+            <div class="edit_box mt20">
+                <ul class="edit_list">
+                    <li class="clearfix">
+                        <span class="edit_txt">队员A姓名</span>
+                        <div class="edit_value"><p><input type="text" class="form_txt form_wd" /></p><p class="check_result"></p></div>
+                    </li>
+                    <li class="clearfix">
+                        <span class="edit_txt">手机</span>
+                        <div class="edit_value"><p><input type="number" class="form_txt form_wd" data-phone="true" /></p><p class="check_result"></p></div>
+                    </li>
+                    <li class="clearfix">
+                        <span class="edit_txt">队员B姓名</span>
+                        <div class="edit_value"><p><input type="text" class="form_txt form_wd" /></p><p class="check_result"></p></div>
+                    </li>
+                    <li class="clearfix">
+                        <span class="edit_txt">手机</span>
+                        <div class="edit_value"><p><input type="number" class="form_txt form_wd" data-phone="true"  /></p><p class="check_result"></p></div>
+                    </li>
+                    <li class="clearfix">
+                        <span class="edit_txt">队员C姓名</span>
+                        <div class="edit_value"><p><input type="text" class="form_txt form_wd" /></p><p class="check_result"></p></div>
+                    </li>
+                    <li class="clearfix">
+                        <span class="edit_txt">手机</span>
+                        <div class="edit_value"><p><input type="number" class="form_txt form_wd" data-phone="true"  /></p><p class="check_result"></p></div>
+                    </li>
+                </ul>
+            </div>
+            <p class="mt20 tc f20 c_fff">*该信息仅用作奖品邮寄，绝不会用作其它商业用途。</p>
+            <p class="mt100 mb80 tc"><input type="submit" value="提　　交"/ class="btn_round c_fac"></p>
+        </form>
+    </div>
+</div>
+<!--主体*****结束-->
+<script src="js/sea.min.js"></script>
+<script>var js_url = {'zepto':'zepto.min.js','swiper':'swiper.min.js'};seajs.config({alias:js_url});seajs.use('base')</script>
+</body>
+</html>
