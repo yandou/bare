@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf8">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no, address=no">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<link rel="stylesheet" href="css/sm.min.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/swiper-3.3.1.min.css">
+<style>
+.clear-fix{zoom:1;}.clear-fix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+#voteHistoryPage{background:#346724;}
+.vote-result{height:100%;overflow-y:scroll;}
+.vote-tr{text-align:right;}
+.vote-result i{font-style:normal;}
+.vote-result-content{position:relative;background:url(images/vote_success_bg.jpg) #000 no-repeat left top;background-size:100% auto;display:none;}
+.vote-left,.vote-right{width:50%;}
+.vote-left{float:left;}
+.vote-right{float:right;}
+.vote-result-list{color:#fff;padding-top:24%;background:url(images/vote-vs.png) no-repeat center 86%;background-size:22% auto;}
+.vote-result-list span{display:block;text-align:center;}
+.vote-result-img{position:absolute;width:80%;left:0;top:0;transition:all .4s;-webkit-transition:all .4s;opacity:0;}
+.vote-result-content-active .vote-result-img{width:30%;left:34%;top:3%;opacity:1;}
+.left-counts{color:#D6755D;}
+.right-counts{color:#ADDEEF;}
+.vote-country{font-weight:bold;font-size:.8rem;}
+.vote-suport{font-size:.6rem;}
+.vote-suport i{font-size:.8rem;}
+.scroe-img{position:relative;display:inline-block;height:10rem;width:34%;margin:0 auto;}
+.vote-left .scroe-img{border-bottom:3px solid #C24031;}
+.vote-right .scroe-img{border-bottom:3px solid #2A58A7;}
+.scroe-img i{position:absolute;bottom:0;left:0;width:100%;}
+.vote-left .scroe-img i{background:#FB5855;background:-webkit-gradient(linear, left top, left bottom, from(#FC8077), color-stop(0.5, #FB4A4A), to(#FC7870));}
+.vote-right .scroe-img i{display:block;background:#2A58A7;background:-webkit-gradient(linear, left top, left bottom, from(#78B4FA), color-stop(0.5, #407DE2), to(#75B0F8));}
+.vote-introduce:before{content:'';display:inline-block;width:.6rem;height:.8rem;background:url(images/vote-rule-img.png) no-repeat left top;background-size:auto 100%;vertical-align:middle;}
+.vote-introduce{font-size:.6rem;color:#fff;text-decoration:underline;vertical-align:middle;}
+.vote-button-box{margin:0.5rem 0;}
+.button-vote{display:inline-block;background:#E72833;color:#FFEA00;padding:.3rem 0;width:44%;border-radius:5px;text-align:center;}
+.vote-get-coupon{text-align:center;padding:0.5rem 0;}
+.vote-view-history{color:#fff;text-decoration:underline;font-size:.6rem;}
+.button-vote-rule{text-align:right;padding-right:1.4rem;}
+.history-box{background:#346724;color:#fff;padding-top:1.2rem;display:none;}
+.history-title{text-align:center;}
+.history-title i{display:block;height:1px;background:#9AB392;margin:0 10%;}
+.history-title .tit{position:relative;top:-.7rem;display:inline-block;background:#346724;padding:0 1rem;font-size:.8rem;}
+.history-list{margin-top:-.5rem;}
+.history-list li{background:#234518;margin-bottom:.5rem;display:none;}
+.history-tit{background:#172D10;color:#fff;font-size:.7rem;text-align:right;padding:.3rem 6%;}
+.history-content{color:#fff;font-size:.6rem;line-height:1.6;padding:.3rem 6%;background:url(images/vote-arrow-right.png) no-repeat 94% center;background-size:3% auto;}
+.vote-team{float:left;color:#DEC802;}
+.vote-guess{color:#D52C30;}
+.vote-see-more{text-align:center;color:#fff;font-size:.6rem;padding-bottom:.5rem;}
+.vote-rule-box{margin-top:1.4rem;}
+.vote-rule-box .history-title i{background:#F1D801;}
+.vote-rule-box .history-title .tit{color:#F1D801;}
+.vote-rule-des{color:#F1D801;font-size:.6rem;line-height:1.6;padding:0 8%;margin-top:-.5rem;padding-bottom:2rem;}
+.vote-rule-des li{margin-bottom:.4rem;}
+.button-vote-more:after{content:'';display:inline-block;width:.6rem;height:.4rem;background:url(images/vote-arrow-bottom.png) no-repeat left top;background-size:100% auto;vertical-align:middle;margin-left:.1rem;}
+</style>
+</head>
+<body style="max-width: 750px; margin: auto;">
+<style>
+
+</style>
+	<div class="page-group">
+        <!-- 单个page ,第一个.page默认被展示-->
+        <div class="page page-current" id="votePage">
+            <!-- 这里是页面内容区 -->
+            <div class="content">
+				<img src="temp_source/img_1.jpg" style="width:100%;height:100%;" >				
+				<span style="position:absolute;left:16%;bottom:7%;height:12%;width:68%;background:rgba(0,0,0,0.2);" id="voteTheBall"></span>
+				<span style="position:absolute;right:3%;bottom:2%;height:4%;width:26%;background:rgba(0,0,0,0.2);" id="viewHistory"></span>
+			</div>
+        </div>
+		
+		<!--投票-->
+        <div class="page" id="voteHistoryPage">
+			<div class="vote-result">
+				<div id="voteContainer">
+					<div class="vote-result-content" id="voteResult">
+						<!--投票结果-->
+						<img src="images/vote-success-img.png" class="vote-result-img" >
+						<div class="vote-result-list clear-fix">
+							<p class="vote-left">
+								<span class="scroe-img"><i class="vote-chart"></i></span>
+								<span class="vote-suport"><i class="left-counts" id="teamoneCounts"></i>人支持</span>
+								<span class="vote-country" id="teamoneCountry"></span>
+							</p>
+							<p class="vote-right">
+								<span class="scroe-img"><i class="vote-chart"></i></span>
+								<span class="vote-suport"><i class="right-counts" id="teamtwoCounts"></i>人支持</span>
+								<span class="vote-country" id="teamtwoCountry"></span>
+							</p>						
+						</div>
+						<!--券-->
+						<div class="vote-get-coupon">
+							<p class="button-vote-rule"><span class="vote-introduce">活动介绍</span></p>
+							<p><img src="images/vote-coupon-img.png" class="coupon-img" ></p>
+							<p class="vote-button-box"><span class="button-vote back" id="voteContinu">继续投票</span></p>
+							<p class="btn-vote-history"><span class="vote-view-history">查看我的历史投票</span></p>
+						</div>
+					</div>
+					<!--历史投票-->
+					<div class="history-box" id="voteHistory">
+						<div class="my-history">
+							<h2 class="history-title"><i></i><span class="tit">我的历史投票</span></h2>
+							<ul class="history-list" id="historyList">
+								<!--
+								<li>
+									<a href="#">
+										<p class="history-tit clear-fix"><span class="vote-team">法国VS罗马尼亚</span><span class="vote-status">待开奖</span></p>
+										<p class="history-content">
+											投票球队：罗马尼亚<br/>投票时间：2016年6月25日<br/>投票结果：您投票的队伍还没有开赛，请等待。
+										</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<p class="history-tit clear-fix"><span class="vote-team">法国VS罗马尼亚</span><span class="vote-status">未中奖</span></p>
+										<p class="history-content">
+											投票球队：罗马尼亚<br/>投票时间：2016年6月25日<br/>投票结果：很遗憾没有猜对，再接再厉。
+										</p>
+									</a>
+								</li>
+								<li>
+									<a class="external">
+										<p class="history-tit clear-fix"><span class="vote-team">法国VS罗马尼亚</span><span class="vote-status">已中奖</span></p>
+										<p class="history-content">
+											投票球队：罗马尼亚<br/>投票时间：2016年6月25日<br/><span class="vote-guess">投票结果：很遗憾没有猜对，再接再厉。</span>
+										</p>
+									</a>
+								</li>
+								-->
+							</ul>
+							<p class="vote-see-more"><span class="button-vote-more">查看更多历史投票</span></p>
+						</div>
+					</div>
+					<div class="vote-rule-box">
+						<h2 class="history-title"><i></i><span class="tit">活动规则</span></h2>
+						<ul class="vote-rule-des">
+							<li>1.每场比赛上半场结束时，停止猜球；</li>
+							<li>2.若您投票的队伍获得本场比赛的胜利，将送给您一张10元大额立减券，次日上午十点前以短信的方式通知您，您可在[我的][我的优惠券]中查看；</li>
+							<li>3.优惠券额度为10元大额立减券，专供外卖使用；</li>
+							<li>4.本次活动规则最终解释权归绝味鸭脖所有。</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+        </div>
+<script type="html/javascript" id="voteHistoryTpl">
+	<li data-teamone-score="{teamone_score}" data-teamtwo-score="{teamtwo_score}" data-teamone="{teamone}" data-teamtwo="{teamtwo}">
+		<a class="external">
+			<p class="history-tit clear-fix"><span class="vote-team">{teamone}VS{teamtwo}</span><span class="vote-status">{choose_right}</span></p>
+			<p class="history-content">
+				投票球队：{choose_result}<br/>投票时间：{choose_time}<br/>{choose_text}
+			</p>
+		</a>
+	</li>
+</script>
+    </div>
+	<script src="js/zepto.js"></script>
+	<script src="js/sm.min.js"></script>
+	<script src="js/swiper-3.3.1.jquery.min.js"></script>
+	<script src="js/common.js"></script>	
+	<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>	
+	<script>
+		$(function() {
+			
+			var $body = $('body');
+			var btn_vote = '#voteTheBall';
+			var btn_history = '#viewHistory';
+			var btn_continu = '#voteContinu';
+			var vote_page = '#votePage';
+			var vote_success_page = '#voteHistoryPage';
+			var vote_rule = '.vote-introduce';
+			var container = $('#voteContainer')[0];
+			var $teamone_chart = $('.vote-left .vote-chart');
+			var $teamtwo_chart = $('.vote-right .vote-chart');			
+			
+			//计算比赛结果
+			var getVoteResult = function(_data) {
+				
+				var _teamone_score = parseInt(_data.teamone_score);
+				var _teamtwo_score = parseInt(_data.teamtwo_score);
+				var _total_score = _teamone_score + _teamtwo_score;
+				var _teamone_score_ratio = ((_teamone_score / _total_score).toFixed(2) * 100);
+				var _teamtwo_score_ratio = 100 - _teamone_score_ratio;
+				
+				return {
+					teamone_score_ratio: _teamone_score_ratio,
+					teamtwo_score_ratio: _teamtwo_score_ratio
+				}				
+			};
+			
+			//更新比赛结果
+			var updateResult = function(_data) {
+								
+				var $result = $('#voteResult');
+				var $teamoneCounts = $('#teamoneCounts');
+				var $teamtwoCounts = $('#teamtwoCounts');
+				var $teamoneCountry = $('#teamoneCountry');
+				var $teamtwoCountry = $('#teamtwoCountry');
+				var $img = $('.vote-result-img');
+				var _ratio;
+				var time = 500;
+				var that = this;
+				
+				_data = _data[0];
+				_ratio = getVoteResult(_data);
+				
+				$teamoneCounts.html(_data.teamone_score);
+				$teamtwoCounts.html(_data.teamtwo_score);
+				$teamoneCountry.html(_data.teamone);
+				$teamtwoCountry.html(_data.teamtwo);				
+				$teamone_chart.css({height: 0});
+				$teamtwo_chart.css({height: 0});
+				
+				window.setTimeout(function() {
+				
+					$teamone_chart.animate({height: _ratio.teamone_score_ratio + '%'}, time);
+					$teamtwo_chart.animate({height: _ratio.teamtwo_score_ratio + '%'}, time);					
+					
+					if (that.nodeName == undefined) {
+						$img.show();
+						$result.addClass('vote-result-content-active');
+					}
+					
+				}, 200);
+				$result.show();
+				
+			};
+			
+			//格式化日期
+			var formatVoteDate = function(time, format) {
+				
+				var _now = new Date(parseInt(time) * 1000);				
+				var _year = _now.getFullYear();
+				var _month = _now.getMonth() + 1;
+				var _date = _now.getDate();
+				
+				return format.replace('MMMM', _year).replace('M', _month).replace('D', _date);
+			};
+			
+			//更新我的投票历史
+			var updateHistory = function(_data) {
+				
+				var $history = $('#voteHistory');
+				var $list = $('#historyList');
+				var $tpl = $('#voteHistoryTpl');
+				var _see_history = '.btn-vote-history';
+				var _see_more = '.vote-see-more';
+				var choose_status = [
+					{
+						"status": '待开奖',
+						"text": '您投票的队伍还没有开赛，请等待。'
+					},
+					{
+						"status": '未中奖',
+						"text": '很遗憾没有猜对，再接再厉。'
+					},
+					{
+						"status": '<span class="vote-guess">已中奖</span>',
+						"text": '<span class="vote-guess">恭喜您猜对了，获得10元大额立减券。</span>'
+					}
+				];
+				var _tpl = $tpl.html();								
+				var len = _data.length;
+				var _html = '';
+				var i;
+				var $items;
+				var default_show_num = 3;
+				
+				//查看历史记录
+				var seeHistory = function() {									
+					$items.slice(0, default_show_num).show();
+					$history.show();
+				};
+				
+				//显示更多
+				var showMoreList = function() {
+					$items.show();
+					$(_see_more).hide();
+				};
+				
+				//改变投票结果
+				var changeResult = function() {
+					
+					var $that = $(this);
+					var _current_index = $that.index();
+					var _teamone = $that.attr('data-teamone');
+					var _teamtwo = $that.attr('data-teamtwo');
+					var _teamone_score = $that.attr('data-teamone-score');
+					var _teamtwo_score = $that.attr('data-teamtwo-score');
+					var $img = $('.vote-result-img');
+					
+					
+					$img.hide();
+					container.scrollIntoView(true);					
+					
+					updateResult.call(this, [{
+						"teamone": _teamone,
+						"teamtwo": _teamtwo,
+						"teamone_score": _teamone_score,
+						"teamtwo_score": _teamtwo_score
+					}]);
+				};
+				
+				//填充数据，_data.choose_right0待开奖，1已中奖，2未中奖
+				for (i = 0; i < len; i++) {
+					var _item = _data[i];
+					var _text = choose_status[parseInt(_item.choose_right)];
+					
+					_item.choose_right = _text.status;
+					_item.choose_text = _text.text;
+					_item.choose_time = formatVoteDate(_item.choose_time, 'MMMM年M月D日');
+					
+					_html += tpl(_tpl, _item);
+				}
+				
+				$list.html(_html);
+				$items = $list.find('li');				
+				$body.on('click', '.history-list li', changeResult);
+				$body.on('click', _see_history, seeHistory);
+				$body.on('click', _see_more, showMoreList);
+			};			
+			
+			//显示活动介绍
+			var showRule = function() {				
+				container.scrollIntoView(false);
+			};
+
+			//投票
+			var voteBall = function() {
+				
+				var ajax_result_url = 'data.txt';
+
+				var voteSuccess = function(_data) {
+					
+					_data = typeof _data === 'string' ? JSON.parse(_data) : _data;
+										
+					if (_data.code == 0) {
+						
+						var _list = _data.data.history;
+						var _current_result = _list.slice(0, 1);
+						var $history = $('#voteHistory');
+						var $seemore = $('.vote-see-more');
+						var $result = $('#voteResult');
+						
+						updateResult.call(this, _current_result);
+						updateHistory(_list);
+						$history.hide();
+						$seemore.show();
+						$result.show();
+						$result.removeClass('vote-result-content-active');
+						$.router.load(vote_success_page, true);
+						container.scrollIntoView(true);
+					} else {
+						$.alert(_data.msg);
+					}
+				};
+
+				$.ajax({
+					type: 'get',
+					dataType: 'json',
+					url: ajax_result_url,
+					success: voteSuccess
+				});
+				
+			};
+			
+			//继续投票
+			var voteContinuFn = function() {			
+				$.router.load(vote_page, true);
+			};
+						
+			//查看历史
+			var viewVoteHistory = function() {
+				var ajax_result_url = 'history.txt';
+
+				var viewHistorySuccess = function(_data) {
+					
+					_data = typeof _data === 'string' ? JSON.parse(_data) : _data;
+										
+					if (_data.code == 0) {
+						
+						var _list = _data.data;
+						var $history = $('#voteHistory');
+						var $seemore = $('.vote-see-more');
+						var $result = $('#voteResult');						
+						
+						updateHistory(_list);
+						$result.hide();						
+						$history.show();
+						$seemore.hide();
+						$('.history-list li').show();
+						$.router.load(vote_success_page, true);
+						$history[0].scrollIntoView();
+					} else {
+						$.alert(_data.msg);
+					}
+				};
+
+				$.ajax({
+					type: 'get',
+					dataType: 'json',
+					url: ajax_result_url,
+					success: viewHistorySuccess
+				});
+			};
+			
+			$body.on('click', btn_vote, voteBall);
+			$body.on('click', btn_history, viewVoteHistory);
+			$body.on('click', vote_rule, showRule);
+			$body.on('click', btn_continu, voteContinuFn);
+		});
+	</script>
+</body>
+</html>

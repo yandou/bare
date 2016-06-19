@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf8">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no, address=no">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<link rel="stylesheet" href="css/sm.min.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/swiper-3.3.1.min.css">
+</head>
+<body style="max-width: 750px; margin: auto;">
+<style>
+*{
+	margin:0;
+	padding:0;
+}
+html,body{
+	height:100%;
+}
+i{font-style: normal;}
+body{
+	font-family:'Microsoft YaHei','Myriad Set Pro','Lucida Grande','Hiragino Sans GB',Helvetica,Arial,sans-serif;
+}
+.swiper-container {
+	width: 100%;
+    height: 100%;
+	background:#000;
+}
+.swiper-slide{
+	width:100%;
+	height:100%;
+}
+img{
+	display:block;
+	width: 100%;
+}
+.swiper-pagination-bullet {
+	width: 6px;
+	height: 6px;
+	background: #fff;
+	opacity: .4;
+}
+/*vs*/
+.vs{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	left: 0;
+}
+.vs-ranks{
+	width: 100%;
+	overflow: hidden;
+}
+.vs-ranks>div{
+	display: block;
+	float: left;
+	width: 16.8%;
+	position: relative;
+}
+.vs-ranks .vs-ranks-l{
+	width: 41.6%;
+}
+.vs-ranks .vs-ranks-l>span,.vs-ranks .vs-ranks-r>span{
+	position: absolute;
+	left: 0;
+	width: 100%;
+	color: #fff;
+	font-size: 1.2rem;
+	text-align: center;
+	padding-top: 9%;
+	top: 0;
+}
+.vs-ranks .vs-ranks-l>span.cur,.vs-ranks .vs-ranks-r>span.cur{
+	color: #ffab00;
+}
+.vs-ranks .vs-ranks-l>span.cur:after,.vs-ranks .vs-ranks-r>span.cur:after{
+	border: #ffab00 0.1rem solid;
+	background: #ffab00;
+}
+.vs-ranks .vs-ranks-l>span:after,.vs-ranks .vs-ranks-r>span:after{
+	content: " ";
+	display: block;
+	position: absolute;
+	top: 50%;
+	width: 0.5rem;
+	height: 0.5rem;
+	border: #fff 0.1rem solid;
+	border-radius: 50%;
+	background: none;
+}
+.vs-ranks .vs-ranks-l>span:after{
+	left: 10%;
+}
+.vs-ranks .vs-ranks-r>span:after{
+	right: 10%;
+}
+@media only screen and (min-width: 100px) and (max-width: 320px) {
+	
+	.vs-ranks .vs-ranks-l>span,.vs-ranks .vs-ranks-r>span{
+		font-size: 1rem;
+	}
+}
+.vs-ranks .vs-ranks-r{
+	width: 41.6%;
+}
+.vs-btn{
+	width: 43%;
+	display: block;
+	margin: 0.5rem auto 1rem auto;
+}
+/*弹出层*/
+.popup{background: none;}
+.popup-login,.popup-success,.popup-rule{
+	z-index: 11400;
+	width: 84%;
+	left: 8%;
+	position: absolute;
+	top: 50%;
+	margin-top: -10rem;
+	background: none;
+	overflow: hidden;
+}
+.popup-login-top{
+	background: #d61616;
+	border-radius: 5px;
+}
+.popup-login-top>h3{
+	text-align: center;
+	overflow: hidden;
+	position: relative;
+}
+.popup-login-top>h3:after,.popup-login-top>h3:before{
+	content: " ";
+	display: block;
+	position: absolute;
+	top: 0.6rem;
+	background: #b01111;
+	width: 0.5rem;
+	height: 0.5rem;
+	border-radius: 50%;
+}
+.popup-login-top>h3:after{
+	left: 0.6rem;
+}
+.popup-login-top>h3:before{
+	right: 0.6rem;
+}
+.popup-login-top>h3 img{
+	width: 56%;
+	margin: 2.5rem auto 1rem auto;
+}
+.popup-login-con{
+	width: 88%;
+	margin: 0 auto;
+	background: #e15757;
+	border-radius: 5px;
+	position: relative;
+	line-height: 2.2rem;
+}
+.popup-login-con>span{
+	font-size: 0.8rem;
+	padding-left: 0.4rem;
+	color: #fff;
+	opacity: 0.72;
+	-webkit-opacity: 0.72;
+}
+.popup-login-con>input{
+	border: none 0;
+	position: absolute;
+	right: 0;
+	height: 2.2rem;
+	width: 8rem;
+	text-align: center;
+	background: none;
+	color: #fff;
+}
+.popup-login-code{
+	width: 88%;
+	margin: 0 auto;
+	position: relative;
+	line-height: 2.2rem;
+	margin-top: 0.5rem;
+}
+.popup-login-code>input{
+	width: 59%;
+	background: #e15757;
+	height: 2.2rem;
+	border-radius: 5px;
+	border: none 0;
+	text-align: center;
+	color: #fff;
+}
+.popup-login-code>span{
+	width: 36%;
+	background: #ffcc00;
+	display: block;
+	float: right;
+	color: #fff;
+	font-size: 0.8rem;
+	text-align: center;
+	border-radius: 5px;
+}
+.popup-login-btn{
+	width: 88%;
+	margin: 1rem auto 0 auto;
+	display: block;
+	border: none 0;
+	background: none;
+}
+.popup-login-reminder{
+	color: #ffcc00;
+	font-size: 0.7rem;
+	padding: 0.6rem 6% 1rem 6%;
+}
+.close-popup{
+	display: block;
+	width: 2.4rem;
+	margin: 0 auto;
+	margin-top: 1rem;
+}
+.popup-overlay{background: rgba(0,0,0,.8);}
+.popup-success,.popup-rule{overflow: visible;}
+.popup-success-d{
+	display: block;
+	width: 4.6rem;
+	position: absolute;
+	top: -2.3rem;
+	background: #ffd634;
+	border-radius: 50%;
+	border: #ffd634 0.25rem solid;
+	left: 50%;
+	margin-left: -2.3rem;
+}
+.popup-rule-d{
+	position: absolute;
+	display: block;
+	width: 13rem;
+	top: -1.8rem;
+	left: 50%;
+	margin-left: -6.5rem;
+}
+.success-explain{
+	padding: 0 6%;
+	color: #ffcc00;
+	font-family: "黑体";
+	padding-bottom: 0.4rem;
+	font-size: 0.9rem;
+}
+.details{
+	line-height: 1.2rem;
+	display: inline-block;
+	position: absolute;
+	top: 1rem;
+	right: 1.5rem;
+	color: #fff;
+}
+.popup-rule .success-explain{
+	padding-bottom: 0.8rem;
+}
+.no{background: #E8E8E8;}
+.flag{
+	overflow: hidden;
+	margin-bottom: -0.5rem;
+}
+.flag img{
+	display: block;
+	width: 50%;
+	float: left;
+}
+.ratio{
+	position: relative;
+	background: #d61616;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	overflow: hidden;
+	padding-bottom: 0.6rem;
+}
+.ratio>h4{
+	color: #ffcc00;
+	padding:0 0.5rem;
+	font-family: "黑体";
+}
+.ratio-g{
+	position: relative;
+	margin: 0.5rem auto;
+	line-height: 1rem;
+}
+.ratio-g>span{
+	display: table-cell;
+	width: 1%;
+	white-space:nowrap;
+	padding: 0 0.5rem;
+	color: #fff;
+}
+.ratio-g>div{
+	display: table-cell;
+	text-align: center;
+	position: relative;
+	width: 100%;
+	background: #fff;
+	overflow: hidden;
+	border-radius: 5px;
+}
+.ratio-g>div span{
+	display: block;
+	position: absolute;
+	top: 0;
+	font-size: 0.6rem;
+	border-radius: 5px;
+	color: #d61616;
+	min-width: 15%;
+	max-width: 85%;
+}
+.ratio-g>div span:first-child{
+	left: 0;
+	background: #ffe16a;
+}
+.ratio-g>div span:last-child{
+	right: 0;
+	background: #ffcc00;
+}
+.ratio-g>div>i{
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 1.4rem;
+	color: #d61616;
+	text-align: center;
+	z-index: 5;
+	margin-left: -0.7rem;
+}
+.myhistory{
+	height: 1.2rem;
+	width: auto;
+	display: block;
+	margin: 0 auto;
+}
+.ratio_record{
+	color: #fff;
+	font-size: 0.68rem;
+	padding: 0 0.5rem;
+	margin-top: 0.3rem;
+}
+.active_next{
+	position:absolute;
+	height:1.2rem;
+	width:100%;
+	overflow:hidden;
+	z-index:10;
+	bottom:5px;
+	opacity: 0.5;
+	background:url(images/arrow_img.png) no-repeat center center;
+	-webkit-animation:active_next 1.5s infinite ease-in-out;
+	animation:active_next 1.5s infinite ease-in-out;
+	background-size:1rem;
+}
+@keyframes active_next{0%,30%{opacity:0;-webkit-transform:translate(0,8px);}60%{opacity:1;-webkit-transform:translate(0,0);}100% {opacity:0;-webkit-transform:translate(0,-10px);}}
+@-webkit-keyframes active_next{0%,30%{opacity:0;-webkit-transform:translate(0,8px);}60%{opacity:1;-webkit-transform:translate(0,0);}100% {opacity:0;-webkit-transform:translate(0,-10px);}}
+.vs-ranks .fore{font-size: 0.9rem !important;line-height: 1.9rem;}
+</style>
+	<div class="page-group">
+        <!-- 单个page ,第一个.page默认被展示-->
+        <div class="page">
+            <!-- 这里是页面内容区 -->
+            <div class="content">
+            	<div class="swiper-container">
+	            	<div class="swiper-wrapper">
+					</div>
+            	</div>
+            	<div class="active_next"></div>
+			</div>
+        </div>
+    </div>
+	<!--登录-->
+	<div class="popup popup-login-r">
+		<div class="popup-login">
+			<div class="popup-login-top">
+				<h3><img src="images/05.png"></h3>
+				<div class="popup-login-con">
+					<span>输入手机号：</span>
+					<input type="number" id="phone"/>
+				</div>
+				<div class="popup-login-code">
+					<input type="number" id="code"/>
+					<span id="codeBtn">获取验证码</span>
+				</div>
+				<button class="popup-login-btn" id="login-btn"><img src="images/06.png"></button>
+				<p class="popup-login-reminder">温馨提示：未注册绝味绝味会员的手机号，提交成功后，将会成为绝味尊享会员。</p>
+			</div>
+			<span class="close-popup"><img src="images/07.png"></span>
+		</div>
+	</div>
+	<!--助力成功-->
+	<div class="popup popup-success-r">
+		<div class="popup-success">
+			<span class="popup-success-d"><img src="images/08.png"></span>
+			<div class="popup-login-top" style="border-bottom-left-radius: 0;border-bottom-right-radius: 0;">
+				<h3 style="padding-top: 1.2rem;"><img src="images/09.png"><span class="details">活动规则</span></h3>
+				<p class="success-explain" style="color: #fff;">若您投票的队伍获得本场比赛的胜利，将送给您一张<span style="color: #ffcc00;">5元优惠券</span>，次日上午十点前以短信的方式通知您，您可在［我的］－［我的优惠券］中查看。</p>				
+			</div>
+			<div>
+				<img src="images/24.png">
+				<div class="ratio">
+					<h4>投票情况：</h4>
+					<div class="ratio-g">
+						<span></span>
+						<div>
+							<span style="width: 50%;"></span>
+							<i>VS</i>
+							<span style="width: 50%;"></span>
+						</div>
+						<span></span>
+					</div>
+					<p><img src="images/25.png" class="myhistory"></p>
+					<div id="history" style="overflow-y: auto; height: 11rem;display: none;">
+					</div>
+				</div>
+			</div>
+			<span class="close-popup"><img src="images/07.png"></span>
+		</div>
+	</div>
+	<!--活动规则-->
+	<div class="popup popup-rule-r">
+		<div class="popup-rule">
+			<span class="popup-rule-d"><img src="images/10.png"></span>
+			<div class="popup-login-top">
+				<p class="success-explain" style="padding-top: 2rem;">1.每场比赛上半场结束时，停止猜球。</p>
+				<p class="success-explain">2.若投票队伍获胜，次日11点前优惠券放入您的账户，并会以短信方式通知您。</p>
+				<p class="success-explain">3.优惠券额度为满20减5元，门店、外卖均可使用。</p>
+				<p class="success-explain" style="padding-bottom: 2rem;">4.本次活动规则最终解释权归绝味鸭脖所有。</p>
+			</div>
+			<span class="close-popup"><img src="images/07.png"></span>
+		</div>
+	</div>
+	
+<script type="text/template" id="myswiper-slide">	
+	<div class="swiper-slide">
+		<img src="{bg}" />
+		<div class="vs">
+			<div class="flag">
+				<img src="{l_img}" style="width: 42%;">
+				<img src="{r_img}" style="width: 42%; margin-left: 16%;">
+			</div>
+			<div class="vs-ranks">
+				<div class="vs-ranks-l">
+					<img src="images/12.png">
+					<span>{l_name}</span>
+				</div>
+				<div class="vs-ranks-c">
+					<img src="images/13a.png">
+				</div>
+				<div class="vs-ranks-r">
+					<img src="images/14.png">
+					<span>{r_name}</span>
+				</div>
+			</div>
+			<span class="vs-btn" data-id="{id}"><img src="images/04.png"></span>
+		</div>
+	</div>
+</script>	
+	
+<script type="text/template" id="myratio">	
+	<div class="ratio_record">
+		<p>投票时间：<span>{choose_time}</span></p>
+		<p>投票球队：<span style="font-weight: 700; color: {color_l};">{teamone}</span> VS <span style="font-weight: 700;color: {color_r}">{teamtwo}</span></p>
+		<p>投票结果：<span>{prize}</span></p>
+	</div>
+</script>		
+		
+	<script src="js/zepto.js"></script>
+	<script src="js/sm.min.js"></script>
+	<script src="js/swiper-3.3.1.jquery.min.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/match.js"></script>	
+	<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+		// 微信分享
+		var wx_config = {
+			link: linkUrl + "H5/uefacup/index.html",
+			imgUrl: 'http://'+location.host+'/H5/uefacup/images/uefa.jpg',
+			title: "猜输赢，抢现金",
+			desc: "小手一抖，赢家全有",
+			// 朋友
+			onMSAM: {
+				// 朋友
+				trigger: function(){
+					// 触发分享后回调  统计
+					tongjiApi.query({"tag":"分享朋友触发/猜球"})
+				},
+				success: function(){
+					// 分享成功后回调  统计
+					tongjiApi.query({"tag":"分享朋友成功/猜球"})
+				},
+				cancel: function(){
+					// 分享取消后回调  统计
+					tongjiApi.query({"tag":"分享朋友取消/猜球"})
+				},
+				fail: function(){
+					// 分享失败后回调  统计
+					tongjiApi.query({"tag":"分享朋友失败/猜球"})
+				}
+			},
+			onMSTL: {
+				// 朋友圈
+				trigger: function(){
+					// 触发分享后回调  统计
+					tongjiApi.query({"tag":"分享朋友圈触发/猜球"})
+				},
+				success: function(){
+					// 分享成功后回调  统计
+					tongjiApi.query({"tag":"分享朋友圈成功/猜球"})
+				},
+				onMSTLCan: function(){
+					// 分享取消后回调  统计
+					tongjiApi.query({"tag":"分享朋友圈取消/猜球"})
+				},
+				onMSTLFail: function(){
+					// 分享失败后回调  统计
+					tongjiApi.query({"tag":"分享朋友圈失败/猜球"})
+				},
+			}
+		}
+		get_city_name_by_geo(wx_config);			
+			
+	</script>
+	<script>
+		$(function(){
+			//是否有手机号
+			commonable = getLdata("commonable")||{};
+			var round=new Array();
+			console.log(commonable);
+			//初始化
+			var initialize=function(){
+				var month=new Date().getMonth()+1;
+				var date=new Date().getDate();
+				var current=match[0];
+				if(date<9){
+					date=9;
+				}
+				if(month<10){
+					month='0'+month;
+				}
+				date=date+5;
+				var mydate=month+'-'+date;
+				for(var i=0;i<match.length;i++){
+					if(match[i].schedule==mydate){
+						current=match[i];
+						break;
+					}else{
+						current=match[match.length-1];
+					}
+				}
+				if(current.type==1){
+					for(i in current.screenings){
+						current.screenings[i].bg='images/2'+i+'.jpg';
+						var html=tpl($('#myswiper-slide').html(), current.screenings[i]);
+						$('.swiper-wrapper').append(html);
+					}
+					var nl=$('.vs-ranks span');
+					for(var i=0;i<nl.length;i++){
+						var j=nl.eq(i).text().length;
+						if(j>=5){
+							nl.eq(i).addClass('fore');
+						}
+					}
+					//初始化翻页
+					var mySwiper = new Swiper ('.swiper-container', {
+				   		direction : 'vertical',//滑动方式
+				   		//pagination: '.swiper-pagination',
+				  		//virtualTranslate : true,
+				   		mousewheelControl : true,//鼠标滑轮滚动
+			   		})
+					var vsbtn=$('.vs-btn');
+					for(var j=0;j<vsbtn.length;j++){
+						var k=vsbtn.eq(j).attr('data-id');
+						for(i in commonable.round){
+							if(commonable.round[i]==k){
+								vsbtn.eq(j).data('yt',0);
+								vsbtn.eq(j).find('img').attr('src','images/03a.png');
+							}
+						}
+					}
+				}else{
+					$.alert("未获取到数据");
+				}
+			}
+			initialize();
+			
+			//获取验证码
+			$('#codeBtn').tap(function(){
+				validate();
+			})
+			//
+			$('#login-btn').tap(function(){
+				var _this=$(this)
+				receive(_this);
+			})
+			
+			var badInput=false;
+	    	$("#phone").on("keyup", function (e) {
+	    		badInput=this.validity.badInput||this.validity;
+			}); 
+		   
+		    // 验证码接口
+		    var validate = function(is){
+		    	var data = {
+		    		phone: $("#phone").val().trim()
+		    	}     
+		    	if(badInput==true){
+		    		$.alert("请输入正确的手机号");
+		    		return
+		    	}
+		    	if(data.phone.length == 0) {
+		    		$.alert("手机号码不能为空");
+		    		return
+		    	}else if(!RE[1].test(data.phone)){
+		    		$.alert("请输入正确的手机号");
+		    		return
+		    	}
+		    	if(is){return true}
+		    	// 防止重复请求
+		    	if($("#codeBtn").hasClass("no")) return;
+		    	num = 59;
+		    	common.ajaxApi(url+'api/user/verifyphone',validateSucc,validateFale,data)
+		    }
+		    // 验证码成功
+		    var validateSucc = function(res){
+		    	var timer=setTimeout(function(){
+		    		$("#codeBtn").html(num+"s").addClass("no");
+		    		num--;
+		    		num <= 0 ? $("#codeBtn").html("获取验证码").removeClass("no")  : 					validateSucc();
+		    	},1000)
+		    }
+		    // 验证码失败
+		    var validateFale = function(res){
+		    	$.alert(res.msg)
+		    }
+		    
+		    //登录
+		    var receive=function(_this){
+				var vsbtn=$('.vs-btn');
+		    	var data = {
+		    		phone: $("#phone").val().trim(),
+		    		code: $("#code").val().trim(),
+		    		type :1,
+		    		round:_this.data('round'),
+					teamone:_this.data('teamone'),
+					teamtwo:_this.data('teamtwo'),
+					choose_result:_this.data('choose_result')
+		    	}
+		    	// 验证手机号码
+		    	if(!validate(1)){
+		    		return;
+		    	}else if(data.code.length == 0) {
+		    		$.alert("验证码不能为空");
+		    		return;
+		    	}else if(!RE[9].test(data.code)){
+		    		$.alert("验证码不正确");
+		    		return;
+		    	}
+		    	var data = {
+		    		phone: $("#phone").val().trim(),
+		    		code: $("#code").val().trim(),
+		    		type :1,
+		    		round:_this.data('round'),
+					teamone:_this.data('teamone'),
+					teamtwo:_this.data('teamtwo'),
+					choose_result:_this.data('choose_result')
+		    	}
+		   		 //登录成功
+		    	$.ajax({
+					url: url+ "api/football/vote",
+					type: 'post',
+					data: data,
+					dataType: 'json',
+					timeout: 10000,
+					success: function(res) {
+						if(res.code==1){
+							$.toast(res.msg);
+							return
+						}
+						if(res.status == 0 ) {
+							// 登录状态
+							commonable.uuid = res.data.uuid;
+							commonable.phone = data.phone;
+							commonable.token = res.data.token;
+							round.push(data.round);
+							commonable.round = round;
+							setLdata("commonable",commonable);
+							$.closeModal('.popup-login-r');	
+							if(res.data.teamone==0&&res.data.teamtwo==0){
+								res.data.teamone=10;
+								res.data.teamtwo=10;
+							}
+							var percentage=parseInt(res.data.teamone/(res.data.teamone+res.data.teamtwo)*100);
+							if(percentage<30){
+								percentage=30
+							}
+							$('.ratio-g>span').eq(0).text(data.teamone);
+							$('.ratio-g>span').eq(1).text(data.teamtwo);	
+							$('.ratio-g>div span').eq(0).css('width',percentage+"%").text(percentage+'%');
+							$('.ratio-g>div span').eq(1).css('width',100-percentage+"%").text(100-percentage+'%');
+							$.popup('.popup-success-r');
+							for(var i=0;i<vsbtn.length;i++){
+								var j=vsbtn.eq(i).attr('data-id')
+								if(_this.data('round')==j){
+									vsbtn.eq(i).data('yt',0);
+									vsbtn.eq(i).find('img').attr('src','images/03a.png');
+								}
+							}
+						}else {
+							commonable.uuid = res.data.uuid;
+							commonable.phone = data.phone;
+							commonable.token = res.data.token;
+							setLdata("commonable",commonable);
+							$.closeModal('.popup-login-r');
+							$.toast(res.msg);
+							$.popup('.popup-success-r');
+							var ratio_g=$('.ratio-g');
+							var ratio_h4=ratio_g.prev();
+							var ratio_img=ratio_g.parent().prev();
+							var ratio_p=$('.ratio').parent().prev('.popup-login-top').find('.success-explain');
+							_this=$('.myhistory');
+							history(_this);
+							_this.parent().next().show();
+							_this.data('z','1');
+							ratio_g.hide();
+							ratio_h4.hide();
+							ratio_img.hide();
+							ratio_p.hide();
+						}
+					},
+					error: function() {
+						$.alert("网络不给力啊")
+					}
+				});
+		    }
+		    
+			//点击助力
+			$('.swiper-container').on('tap','.vs-btn',function(){
+				var phone=commonable.phone;
+				var zt=$(this).data('zt');
+				var yt=$(this).data('yt');
+				var vsbtn=$(this);
+				if(yt!=0){
+					if(zt==1){
+						if(!phone){//没有手机号码
+							var round_id=$(this).attr('data-id');
+							var ranks_teamone=$(this).prev('.vs-ranks').children('.vs-ranks-l').find('span');
+							var ranks_teamtwo=$(this).prev('.vs-ranks').children('.vs-ranks-r').find('span');
+							var teamone=ranks_teamone.text();
+							var teamtwo=ranks_teamtwo.text();
+							$.popup('.popup-login-r');
+							var choose_a,choose_b,choose_result,loginbtn=$('#login-btn');
+							if(ranks_teamone.hasClass('cur')){
+								choose_a=1;
+							}	
+							if(ranks_teamtwo.hasClass('cur')){
+								choose_b=2;				
+							}
+							if(choose_a==1&&choose_b==2){
+								choose_result=3
+							}else if(choose_a==1){
+								choose_result=choose_a;
+							}else if(choose_b==2){
+								choose_result=choose_b;							
+							}
+							//当没有登录时
+							loginbtn.data('round',round_id);
+							loginbtn.data('teamone',teamone);
+							loginbtn.data('teamtwo',teamtwo);
+							loginbtn.data('choose_result',choose_result);
+						}else{
+							var ranks_teamone=$(this).prev('.vs-ranks').children('.vs-ranks-l').find('span');
+							var ranks_teamtwo=$(this).prev('.vs-ranks').children('.vs-ranks-r').find('span');
+							var teamone=ranks_teamone.text();
+							var teamtwo=ranks_teamtwo.text();
+							var choose_a,choose_b,choose_result,loginbtn=$('#login-btn');
+							if(ranks_teamone.hasClass('cur')){
+								choose_a=1;
+							}	
+							if(ranks_teamtwo.hasClass('cur')){
+								choose_b=2;				
+							}
+							if(choose_a==1&&choose_b==2){
+								choose_result=3
+							}else if(choose_a==1){
+								choose_result=choose_a;
+							}else if(choose_b==2){
+								choose_result=choose_b;							
+							}
+					    	var data = {
+					    		phone: phone,
+					    		type :0,
+					    		round:$(this).attr('data-id'),
+								teamone:teamone,
+								teamtwo:teamtwo,
+								choose_result:choose_result
+					    	}
+					    	$.ajax({
+								url: url+ "api/football/vote",
+								type: 'post',
+								data: data,
+								dataType: 'json',
+								timeout: 10000,
+								success: function(res) {
+									if(res.status == 0 ) {
+										if(res.data.teamone==0&&res.data.teamtwo==0){
+											res.data.teamone=10;
+											res.data.teamtwo=10;
+										}
+										var percentage=parseInt(res.data.teamone/(res.data.teamone+res.data.teamtwo)*100);
+										if(percentage<30){
+											percentage=30
+										}
+										$('.ratio-g>span').eq(0).text(data.teamone);
+										$('.ratio-g>span').eq(1).text(data.teamtwo);	
+										$('.ratio-g>div span').eq(0).css('width',percentage+"%").text(percentage+'%');
+										$('.ratio-g>div span').eq(1).css('width',100-percentage+"%").text(100-percentage+'%');
+										round.push(data.round);
+										commonable.round = round;
+										setLdata("commonable",commonable);
+										$.popup('.popup-success-r');
+										vsbtn.data('yt',0);
+										vsbtn.find('img').attr('src','images/03a.png');
+									}else {
+										$.toast(res.msg);
+										$.popup('.popup-success-r');
+										var ratio_g=$('.ratio-g');
+										var ratio_h4=ratio_g.prev();
+										var ratio_img=ratio_g.parent().prev();
+										var ratio_p=$('.ratio').parent().prev('.popup-login-top').find('.success-explain');
+										_this=$('.myhistory');
+										history(_this);
+										_this.parent().next().show();
+										_this.data('z','1');
+										ratio_g.hide();
+										ratio_h4.hide();
+										ratio_img.hide();
+										ratio_p.hide();
+									}
+								},
+								error: function() {
+									$.alert("网络不给力啊");
+								}
+							});
+						}
+					}else{
+						$.toast("请先选择队伍！");
+					}
+				}else{
+					$.popup('.popup-success-r');
+					var ratio_g=$('.ratio-g');
+					var ratio_h4=ratio_g.prev();
+					var ratio_img=ratio_g.parent().prev();
+					var ratio_p=$('.ratio').parent().prev('.popup-login-top').find('.success-explain');
+					_this=$('.myhistory');
+					history(_this);
+					_this.parent().next().show();
+					_this.data('z','1');
+					ratio_g.hide();
+					ratio_h4.hide();
+					ratio_img.hide();
+					ratio_p.hide();
+				}
+			})			
+			
+			//活动详情
+			$('.popup-login-top').on('tap','.details',function(){
+				$.closeModal('.popup-success-r');
+				$.popup('.popup-rule-r');
+			})
+			//查看历史记录
+			$('.myhistory').tap(function(){	
+				_this=$(this);
+				history(_this);
+			})
+			function history(_this){
+				var ratio_g=$('.ratio-g');
+				var ratio_h4=ratio_g.prev();
+				var ratio_img=ratio_g.parent().prev();
+				var ratio_p=$('.ratio').parent().prev('.popup-login-top').find('.success-explain');
+				if(_this.data('z')==1){
+					_this.parent().next().hide();
+					_this.data('z','0');
+					ratio_g.show();
+					ratio_h4.show();
+					ratio_img.show();
+					ratio_p.show();
+				}else{
+					var phone=commonable.phone;
+					$.post(url+"api/football/history",{phone:phone},function(res){
+						if(res){
+							res=JSON.parse(res);
+							$('#history').html("");
+							for(i in res){
+								res[i].choose_time=ormatDate(res[i].choose_time,true,'/');
+								if(res[i].winner=="进行中"){
+									res[i].prize="比赛还未结束！"
+								}else{
+									if(res[i].choose_right==0){
+										res[i].prize="很遗憾没猜对，再接再厉!";
+									}else{
+										res[i].prize="恭喜您，猜对了!";
+									}
+								}
+								if(res[i].teamone==res[i].winner){
+									res[i].color_l="#ffcc00";
+								}else if(res[i].teamtwo==res[i].winner){
+									res[i].color_r="#ffcc00";
+								}
+								var html=tpl($('#myratio').html(), res[i]);
+								$('#history').append(html);
+							}
+						}else{
+							$.toast('网络不给力啊');
+						}
+					})
+					_this.parent().next().show();
+					_this.data('z','1');
+					ratio_g.hide();
+					ratio_h4.hide();
+					ratio_img.hide();
+					ratio_p.hide();
+				}
+			}
+			//选择队伍
+			$('.swiper-container').on('tap','.vs-ranks-r,.vs-ranks-l',function(){
+				var yt=$(this).parent('.vs-ranks').next().data('yt');
+				if(yt==0){
+					$.toast('本场次您已投过票了~');
+				}else{
+					var ranks=$(this).children('span');
+					if(ranks.hasClass('cur')){
+						ranks.removeClass('cur');
+						ranks.data('choice', '0');
+						$(this).siblings('.vs-ranks-c').children('img').attr('src','images/13a.png');
+						var choice=$(this).siblings().children('span').data('choice');
+						if(choice==0||choice==undefined){
+							$(this).parent().next().data('zt','0');
+							$(this).parent().next().find('img').attr('src','images/04.png');
+						}
+					}else{
+						ranks.addClass('cur');
+						$(this).siblings().children('span').removeClass('cur');
+						//ranks.data('choice', '1');
+						$(this).parent().next().find('img').attr('src','images/03.png');
+						$(this).parent().next().data('zt','1');
+						/*var choice=$(this).siblings().children('span').data('choice');
+						if(choice==1){
+							$(this).siblings('.vs-ranks-c').children('img').attr('src','images/13.png');
+						}*/
+				}
+				}
+			})
+			$.init();
+		})
+	</script>
+</body>
+</html>

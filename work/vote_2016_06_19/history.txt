@@ -1,0 +1,72 @@
+﻿{
+    "code": 0,
+    "msg": "success",
+	"data": [
+		{
+			"round": "38",
+			"teamone": "英格兰",
+			"teamtwo": "威尔士",
+			"choose_result": "威尔士",
+			"choose_time": "1466162590",
+			"choose_right": "0",
+			"send_status": "0",
+			"teamone_score": 160,
+			"teamtwo_score": "30"
+		},
+		{
+			"round": "37",
+			"teamone": "法国",
+			"teamtwo": "罗马尼亚",
+			"choose_result": "罗马尼亚",
+			"choose_time": "1466162590",
+			"choose_right": "1",
+			"send_status": "0",
+			"teamone_score": 1,
+			"teamtwo_score": "30"
+		},
+		{
+			"round": "37",
+			"teamone": "英国",
+			"teamtwo": "澳大利亚",
+			"choose_result": "澳大利亚",
+			"choose_time": "1466122990",
+			"choose_right": "2",
+			"send_status": "0",
+			"teamone_score": 5000,
+			"teamtwo_score": "3000"
+		},
+		{
+			"round": "39",
+			"teamone": "俄国",
+			"teamtwo": "土耳其",
+			"choose_result": "土耳其",
+			"choose_time": "1466090590",
+			"choose_right": "1",
+			"send_status": "0",
+			"teamone_score": 200,
+			"teamtwo_score": "1000"
+		},
+		{
+			"round": "40",
+			"teamone": "秘鲁",
+			"teamtwo": "巴塞罗那",
+			"choose_result": "秘鲁",
+			"choose_time": "1466068990",
+			"choose_right": "2",
+			"send_status": "0",
+			"teamone_score": 100,
+			"teamtwo_score": "120"
+		},
+		{
+			"round": "41",
+			"teamone": "非洲",
+			"teamtwo": "罗马",
+			"choose_result": "非洲",
+			"choose_time": "1465982590",
+			"choose_right": "2",
+			"send_status": "0",
+			"teamone_score": 82,
+			"teamtwo_score": "30"
+		}
+	]
+}
