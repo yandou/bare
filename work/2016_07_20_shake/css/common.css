@@ -1,0 +1,154 @@
+.page .content, .page .list-block, .page .font-mid {
+	font-size: 0.8rem; 
+}
+/*禁止用户长按复制*/
+body {
+	 -webkit-user-select : none; 
+}
+.page .content-block-title {
+	font-size: 0.8rem;
+	margin:.75rem .75rem .5rem;
+}
+.page .title, .page header {
+	font-size: .9rem;
+}
+.bar:after {
+	content: none;
+}
+.com-dis-none {
+	display: none  !important;
+}
+.page .no-margin {
+	margin: 0 0 0 0;
+	padding: 0;
+}
+.font-small {
+	font-size: 0.7rem !important;
+}
+.font-smalls {
+	font-size: 0.6rem !important;
+}
+.font-gray {
+	color: #999 !important;
+}
+.font-grdy {
+	color: #666 !important;
+}
+.font-grey {
+	color: #333  !important;
+}
+.page .fl-r {
+	float: right;
+}
+.page .font-bold {
+	font-weight: bold;
+}
+.font-h2 {
+	padding: 0.3rem 0.6rem 0.3rem 0.3rem; 
+	font-size: 0.7rem;
+}
+.list-block .item-inner {
+	padding-top: 0.45rem;
+	padding-bottom: 0.45rem;
+}
+.item-con .item-inner {
+	padding-top: 0.6rem;
+	padding-bottom: 0.6rem;
+}
+.pia-or .list-block ul:after,.position .list-block ul:before  {
+	content: none;
+}
+.page nav > div a, .page .big-height {
+	height: 2.5rem;
+}
+.page b {
+	font-weight: normal;
+}
+.page .button-fill {
+	height: 2.2rem;
+	line-height: 2.2rem;
+	/*word-spacing: 1rem;
+	letter-spacing: 0.2rem;*/
+	font-size: 1rem;
+}
+.page .actives:active {
+	background: #970606 !important;
+	color: #fff;
+}
+.modal .modal-in {
+	z-index: 1000000000;
+	transform: translate3d(0,0,0) scale(1.2);
+}
+/*.pia-or .list-block ul:before,.ordeform .list-block ul:before,.modal-button:after {
+	content: none;
+}*/
+.pia-or .bor {
+	border-top: 1px solid #e7e7e7;
+}
+.pia-or .bor li:last-child  {
+	margin-top: .8rem;
+}
+.ordeform .list-block .item-inner:after,.ordeform .list-block ul:after,
+.icon-search:before, .order_qr .list-block .item-after {
+	content: none;
+}
+.search-input .icon-search {
+	left: 0.2rem; 
+	width: 1.5rem;
+	height: 1.5rem;
+	background: url(../img/1087.svg) no-repeat center center;
+	background-size: 56%;
+}
+.modal-buttons span {
+	color: #666;
+}
+.modal-buttons span:last-child {
+	color: #f90000;
+}
+.no-padding {
+	padding: 0 !important;
+}
+.content-margin {
+    padding: 2rem 0 0rem 0rem;
+    bottom: 2.5rem;
+}
+.ordeform .content {
+	padding-top: 0;
+	padding-bottom: 3rem;
+}
+.page .button-danger {
+	background: #f90000;
+}
+.material_button {
+	overflow: hidden;
+  user-select: none;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.button_click {
+  display: block;
+  position: absolute;
+  background:rgba(255, 255, 255, 0.5);
+  border-radius: 100%;
+  -webkit-transform:scale(0);
+  transform:scale(0);
+}
+
+.animate {
+  -webkit-animation:ripple 0.5s linear;
+  animation:ripple 0.5s linear;
+}
+
+@-webkit-keyframes ripple {
+  100% {opacity: 0;-webkit-transform: scale(2.5);}
+}
+
+@keyframes ripple {
+    100% {opacity: 0;transform: scale(2.5);}
+}
+ul li:last-child,ol li:last-child {
+	border-bottom: 0px solid #fff !important;
+}
+.list-block ul:after,.list-block ul:before,.buttons-tab:after {
+	content: none;
+}

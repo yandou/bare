@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no, address=no">
+<title>绝味鸭脖</title>
+<link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+<link rel="stylesheet" href="css/reset.css" />
+<style>
+a:hover{color:#fff;}
+.tc{text-align:center;}
+.clear-fix:after{content:'';display:block;height:0;overflow:hidden;clear:both;}.clear-fix{zoom:1;}
+.shake-highlight{color:#FFDD3C;}
+.shake-main{height:100%;background:#D71518;}
+.shake-head{height:30%;background:url(img/shake_img/shake_txt.png) no-repeat 50% 50% / 100%;max-width:20rem;margin-left:auto;margin-right:auto;}
+.shake-cnt{position:relative;height:44%;background:url(img/shake_img/shake_phone_bg.png) #000 center center no-repeat;background-size:100% 100%;}
+.top-phone,.bottom-phone{position:absolute;height:50%;left:0;width:100%;background:#D71518;overflow:hidden;}
+.top-phone{top:0;}.bottom-phone{top:50%;height:51%;}
+.top-phone:after,.bottom-phone:after{content:'';position:absolute;width:8rem;height:8rem;left:50%;margin-left:-4rem;background:url(img/shake_img/shake_phone.png) no-repeat;background-size:100% 100%;}
+.top-phone::after{bottom:-4rem;}.bottom-phone::after{top:-4rem;}
+.shake-info{position:relative;height:26%;color:#fff;font-size:1rem;}
+.shake-total-person{margin-bottom:1.5rem;font-size:.8rem;}
+.shake-mask{position:absolute;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.7);}
+.shake-pop-cnt{position:absolute;left:0;top:50%;width:100%;transform:translate3d(0,-50%,0);-webkit-transform:translate3d(0,-50%,0);}
+.shake-get-phone,.shake-get-code,.shake-use-cnt{margin:0 6%;border-radius:.2rem;}
+.shake-get-phone{background:#D0391D;padding:2rem 1rem;}
+.shake-get-code{background:#EAE6E6;padding:1.2rem .8rem;}
+.shake-use-cnt{position:relative;background:#D0391D;padding:2.4rem 1rem 1rem;}
+.total-price{display:inline-block;vertical-align:middle;margin:0 .2rem;}
+.total-price span{position:relative;display:inline-block;width:1.4rem;height:2rem;line-height:2rem;vertical-align:middle;background:url(img/shake_img/shake_txt_bg.png) no-repeat 50% 50% / 100%;color:#282B2A;overflow:hidden;}
+.btn-shake,.txt-shake,.txt-second{border-radius:.2rem;font-size:.7rem;}
+.btn-shake{text-align:center;color:#fff;padding:.5rem;}
+.btn-set-phone{display:block;background:#ECC335;}
+.btn-post-code{display:block;background:#E51A13;}
+.txt-shake{outline:none;border:none;padding:.6rem;}
+.txt-code{width:60%;border:1px solid #F77A7A;}
+.txt-phone{width:100%;}
+.shake-get-list li{margin-top:1rem;}
+.shake-get-cnt{background:#fff;border-radius:.2rem;height:5rem;}
+.shake-line{position:absolute;top:0;right:-.4rem;height:100%;width:.4rem;background:url(img/shake_img/shake_coupon_circle.png) top center repeat-y;background-size:100% auto;}
+.icon-start,.icon-end{position:absolute;width:.8rem;height:.8rem;background:#D0391D;border-radius:50%;left:50%;margin-left:-.4rem;}.icon-start{top:-.4rem;}.icon-end{bottom:-.4rem;}
+.shake-get-l{position:relative;float:left;width:24%;height:100%;}
+.shake-get-r{float:right;width:76%;height:100%;}
+.coupon-type{display:inline-block;height:100%;text-align:center;vertical-align:middle;writing-mode:vertical-lr;margin-left:50%;font-size:1.1rem;color:#D24329;transform:translate3d(-50%,0,0);-webkit-transform:translate3d(-50%,0,0);letter-spacing:-.2rem;}
+.money-value{display:inline-block;width:100%;font-size:.8rem;color:#E51A13;line-height:normal;padding-top:.5rem;}
+.money-value i{font-size:2.8rem;font-style:normal;line-height:normal;}
+.money-env{position:relative;top:-.6rem;font-size:.6rem;color:#B5B5B5;}
+.shake-get-tips{display:inline-block;color:#666;font-size:.6rem;line-height:normal;}
+.shake-code-cnt{font-size:.6rem;}
+.shake-code-cnt .tit{font-size:.8rem;margin-bottom:.4rem;}
+.phone-code{padding:0 .3rem;}
+.txt-second{display:inline-block;width:35%;margin-left:5%;padding:.6rem .1rem;background:#E51A13;text-align:center;color:#fff;}
+.txt-second-dis{cursor:no;background:#ccc;}
+.shake-again-cnt{width:100%;height:10rem;background:url(img/shake_img/shake_result_two.png) center center no-repeat;background-size:auto 100%;}
+.shake-again-cnt .txt{position:absolute;left:50%;bottom:1rem;transform:translate3d(-50%,0,0);-webkit-transform:translate3d(-50%,0,0);font-size:.7rem;}
+.shake-my-coupon,.shake-my-coupon a{font-size:.8rem;color:#972324;}
+.shake-my-coupon{margin-top:.6rem;}
+.shake-link-lists li{position:relative;border-bottom:1px solid #D05C37;color:#fff;font-size:.8rem;}
+.shake-link-lists a{display:block;padding:.5rem .3rem;}
+.shake-link-lists li:after{content:'';position:absolute;right:0;top:50%;margin-top:-.5rem;width:.5rem;height:1rem;background:url(img/shake_img/shake_arrow_right.png) right center no-repeat;background-size:auto 100%;}
+.shake-link-lists a{color:#fff;}
+.shake-in-phone{margin:.6rem 0 0;font-size:.7rem;color:#9E2520;}
+.shake-in-phone .phone-code{color:#fff;}
+.btn-user-code{position:absolute;right:.4rem;top:.4rem;width:1rem;height:1rem;background:url(img/shake_img/shake_code_img.png) no-repeat;background-size:100% 100%;}
+.icon-location,.icon-shop{float:left;width:1.2rem;height:1.4rem;background-repeat:no-repeat;}
+.icon-location{background-image:url(img/shake_img/shake_position_img.png);background-size:90% auto;background-position:center center;}
+.icon-shop{background-image:url(img/shake_img/shake_shop_img.png);background-size:100% auto;}
+.shake-link-ct{width:80%;overflow:hidden;line-height:1.4rem;padding-left:.3rem;}
+.shake-lately{display:none;font-size:.6rem;line-height:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#F1D825;}
+.shake-icon-right{display:inline-block;width:.4rem;height:.8rem;background:url(img/shake_img/shake_arrow_right_t.png) no-repeat;background-size:100% auto;vertical-align:middle;margin-left:.2rem;}
+.btn-close{position:absolute;bottom:0;left:50%;margin-left:-1.5rem;width:3rem;height:3rem;background:url(img/shake_img/shake_pop_close.png) center center no-repeat;background-size:80% 80%;transform:translate3d(0,100%,0);-webkit-transform:translate3d(0,100%,0);}
+.shake-cnt-status{opacity:0;position:absolute;bottom:0;width:100%;text-align:center;color:#fff;font-size:.8rem;}.status-txt{display:inline-block;background:#9C1416;border-radius:.2rem;padding:.1rem 1rem;}
+.shake-page .shake-cnt-status{opacity:1;transition:all .2s 2s;-webkit-transition:all .2s 2s;}
+.qrcode-cnt{position:absolute;left:0;top:0;width:100%;height:100%;background:#D0391D;display:none;z-index:2;}
+.qrcode-cnt img{position:absolute;left:50%;top:50%;transform:translate3d(-50%,-50%,0);-webkit-transform:translate3d(-50%,-50%,0);width:80%;height:auto;padding:5%;background:#fff;}
+.shake-get,.shake-get-phone,.shake-get-code,.shake-again,.shake-use-cnt,.shake-page .shake-total-person,.shake-page .shake-total-price{display:none;}
+.un-shake-first-step-one .shake-get,.un-shake-first-step-one .shake-get-phone,.un-shake-first-step-two .shake-get,.un-shake-first-step-two .shake-get-code,.in-shake .shake-get,.in-shake .shake-use-cnt,.shake-second .shake-get,.shake-second .shake-again{display:block;}
+.shake-more .shake-main{background:url(img/shake_img/shake_gameover.jpg) #D71518 center center no-repeat;background-size:100% 100%;}
+.shake-page .shake-head{background:#D71518;}
+.shake-more .shake-cnt,.shake-more .top-phone,.shake-more .bottom-phone{background:none;}
+.shake-page .top-phone{-webkit-animation:totop 2s;animation:totop 2s;-webkit-iteration-count:1;iteration-count:1;}
+.shake-page .bottom-phone{-webkit-animation:tobottom 2s;animation:tobottom 2s;-webkit-iteration-count:1;iteration-count:1;}
+@keyframes totop{0%{-webkit-transform:translate(0,0%);transform:translate(0,0%);}40%{-webkit-transform:translate(0,-100%);transform:translate(0,-100%);}60%{-webkit-transform:translate(0,-100%);transform:translate(0,-100%);}100%{-webkit-transform:translate(0,0);transform:translate(0,0);}}
+@keyframes tobottom{0%{-webkit-transform:translate(0,0%);transform:translate(0,0%);}40%{-webkit-transform:translate(0,100%);transform:translate(0,100%);}60%{-webkit-transform:translate(0,100%);transform:translate(0,100%);}100%{-webkit-transform:translate(0,0%);transform:translate(0,0%);}}
+@-webkit-keyframes totop{0%{-webkit-transform:translate(0,0%);transform:translate(0,0%);}40%{-webkit-transform:translate(0,-100%);transform:translate(0,-100%);}60%{-webkit-transform:translate(0,-100%);transform:translate(0,-100%);}100%{-webkit-transform:translate(0,0);transform:translate(0,0);}}
+@-webkit-keyframes tobottom{0%{-webkit-transform:translate(0,0%);transform:translate(0,0%);}40%{-webkit-transform:translate(0,100%);transform:translate(0,100%);}60%{-webkit-transform:translate(0,100%);transform:translate(0,100%);}100%{-webkit-transform:translate(0,0%);transform:translate(0,0%);}}
+.modal-button{background:#A7181C;color:#fff;}
+</style>
+</head>
+<body>
+<div class="page-group">
+	<div class="page page-current" id="shakeDefault">
+		<audio id="audioDefault" src="img/shake_img/mp3/default.mp3"></audio>
+		<audio id="audioGet" src="img/shake_img/mp3/get.mp3"></audio>
+		<audio id="audioMiss" src="img/shake_img/mp3/miss.mp3"></audio>		
+		<div class="shake-main">
+			<div class="shake-head"></div>
+			<div class="shake-cnt">
+				<section class="top-phone"></section>
+				<section class="bottom-phone"></section>
+				<section class="shake-cnt-status"><span class="status-txt">正在拼命抢券中...</span></section>
+			</div>
+			<div class="shake-info">
+				<div class="shake-total-person tc">今天已有<span class="shake-highlight">12467</span>人摇过</div>
+				<div class="shake-total-price tc">抢走<span class="total-price"><span>6</span><span>8</span><span>1</span><span>5</span><span>3</span><span>8</span></span>元</div>
+			</div>
+		</div>
+		<div class="shake-get shake-mask"><div class="shake-pop-cnt" id="shakePop"></div></div>		
+	</div>
+</div>
+<script type="html/javascript" id="tplGetPhone">
+	<div class="shake-get-phone" id="popPhone">
+		<ul class="shake-get-list">
+			<li><input type="number" placeholder="请输入手机号码" class="txt-shake txt-phone"></li>
+			<li><a href="javascript:void(0)" class="external btn-shake btn-set-phone">马上领取</a></li>
+		</ul>
+		<span class="btn-close"></span>
+	</div>
+</script>
+<script type="html/javascript" id="tplGetCode">
+	<div class="shake-get-code" id="popCode">
+		<div class="shake-code-cnt tc">
+			<section class="tit">手机号验证</section>
+			<section>为保证领取成功，请验证<span class="phone-code">{user_phone}</span></section>
+		</div>
+		<ul class="shake-get-list">
+			<li><section><input type="number" placeholder="请输入验证码" class="txt-shake txt-code" ><a href="javascript:void(0)" class="external txt-second"></a></section></li>
+			<li><a href="javascript:void(0)" class="external btn-shake btn-post-code">提　交</a></li>
+			<li><span class="shake-get-tips">温馨提示：未注册绝味会员的手机号。领券成功后，将会成为绝味尊享会员。</span></li>
+		</ul>
+		<span class="btn-close"></span>
+	</div>
+</script>
+<script type="html/javascript" id="tplAgain">
+	<div class="shake-pop-cnt" id="popAgain">
+		<div class="shake-again">
+			<section class="shake-again-cnt"><span class="txt">一天一次，明天再来！</span></section>
+			<span class="btn-close"></span>
+		</div>
+	</div>
+</script>
+<script type="html/javascript" id="tplLoggedin">
+	<div class="shake-use-cnt" id="popLogged">
+		<a href="javascript:void(0);" class="external btn-user-code"></a>
+		<div class="qrcode-cnt" id="userQrCode"></div>
+		<section class="shake-in-phone tc">已放入账号：<span class="phone-code">{user_phone}</span></section>
+		<ul class="shake-link-lists">
+			<li><a href="search_shop_info.html" class="external clear-fix"><i class="icon-location"></i><div class="shake-link-ct"><span class="shake-position-status">定位中...</span><section class="shake-lately">离我最近：876米 | 北京市朝阳区定福庄路38号</section></div></a></li>
+			<li><a href="index.html" class="external clear-fix"><i class="icon-shop"></i><div class="shake-link-ct">点外卖</div></a></li>
+		</ul>
+		<section class="shake-my-coupon tc"><a href="mycoupon.html" class="external">查看我的优惠券<i class="shake-icon-right"></i></a></section>
+		<span class="btn-close"></span>
+	</div>
+</script>
+<script type="html/javascript" id="tplCoupon">
+	<div class="shake-get-cnt clear-fix">
+		<section class="shake-get-l">
+			<span class="coupon-type">{coupon_type_des}</span>
+			<span class="shake-line"><i class="icon-start"></i><i class="icon-end"></i></span>							
+		</section>
+		<section class="shake-get-r tc">
+			<span class="money-value">￥<i>{money}</i></span>
+			<span class="money-env">满{full_money}元可用，{use_type_des}</span>
+		</section>
+	</div>
+</script>
+<script src="http://g.alicdn.com/sj/lib/zepto/zepto.min.js"></script>
+<script src="http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js"></script>
+<script src="js/common.js"></script>
+<script>
+$(function() {
+	function playable(id){
+		var audio = document.getElementById(id);
+		var play = function(){
+			audio.play();
+			audio.pause();
+			document.removeEventListener("touchstart", play, false);
+		};
+
+		document.addEventListener("touchstart", play, false);
+
+		var wx = wx || undefined;
+		if(wx){
+			wx.config({
+				debug: false,
+				appId: '',
+				timestamp: 1,
+				nonceStr: '',
+				signature: '',
+				jsApiList: []
+			});
+			wx.ready(function() {
+				play();
+			});
+		}
+
+		document.addEventListener("WeixinJSBridgeReady", function () {
+			play();
+		}, false);
+	}
+	
+	playable('audioDefault');
+	playable('audioGet');
+	playable('audioMiss');
+
+	shakeLibrary = {
+		wx_config: {
+			// 好友
+			onMSAM : {
+				trigger: function(){
+					// 触发分享后回调  统计
+					tongjiApi.query({"tag":"分享朋友触发/摇嗨"})
+				},
+				success: function(){
+					// 分享成功后回调  统计
+					tongjiApi.query({"tag":"分享朋友成功/摇嗨"})
+				},
+				cancel: function(){
+					// 分享取消后回调  统计
+					tongjiApi.query({"tag":"分享朋友取消/摇嗨"})
+				},
+				fail: function(){
+					// 分享失败后回调  统计
+					tongjiApi.query({"tag":"分享朋友失败/摇嗨"})
+				}
+			},
+			// 朋友圈
+			onMSTL : {
+				trigger: function(){
+					// 触发分享后回调  统计
+					tongjiApi.query({"tag":"分享朋友圈触发/摇嗨"})
+				},
+				success: function(){
+					// 分享成功后回调  统计
+					tongjiApi.query({"tag":"分享朋友圈成功/摇嗨"})
+				},
+				onMSTLCan: function(){
+					// 分享取消后回调  统计
+					tongjiApi.query({"tag":"分享朋友圈取消/摇嗨"})
+				},
+				onMSTLFail: function(){
+					// 分享失败后回调  统计
+					tongjiApi.query({"tag":"分享朋友圈失败/摇嗨"})
+				}
+			}
+		},
+		bind: function(obj, fn) {
+		
+			return function() {
+				return fn.apply(obj, Array.prototype.slice.call(arguments));
+			}
+		},
+		addCookieValue: function(name, val, MS) {
+		
+			var str = name + "=" + escape(val);
+			
+			if (MS > 0) {
+			
+				var date = new Date();
+				
+				date.setTime(date.getTime() + MS);				
+				str += "; expires=" + date.toGMTString() + "; path=/";
+			}
+			
+			document.cookie = str;
+		},
+		getCookieValue: function(name) {
+		
+			var arrStr = document.cookie.split("; ");
+			
+			for (var i = 0; i < arrStr.length; i++) {
+			
+				var temp = arrStr[i].split("=");
+				
+				if (temp[0] == name) {
+					return unescape(temp[1]);
+				}				
+			}
+			return null;
+		},
+		getRemainTime: function() {
+			
+			var _date = new Date();
+			
+			return (24 * 60 * 60 * 1000) - ((_date.getHours() * 60 * 60 * 1000) + (_date.getMinutes() * 60 * 1000) + (_date.getSeconds() * 1000));
+		},
+		responseError: function(callBack) {
+			
+			return function() {
+				typeof callBack === 'function' ? $.alert(shakeLibrary.showTextList.networkErrors, callBack) : $.alert(shakeLibrary.showTextList.networkErrors);
+			}			
+		},
+		responseHasErrorData: function(options) {
+			
+			var result;
+			
+			if (typeof options.res === 'boolean') {
+				result = true;
+				typeof options.callBack === 'function' ? $.alert(shakeLibrary.showTextList.paramError, options.callBack) : $.alert(shakeLibrary.showTextList.paramError);
+			} else {
+				result = false;
+			}
+			
+			return result;
+		},
+		getCurrentTime: function() {
+		
+			return (new Date()).getTime();
+		},
+		diffTime: function(startTime) {
+		
+			return startTime === undefined ? 0 :(new Date().getTime()) - startTime;
+		},
+		changeToJSON: function(res) {
+		
+			var result;
+			
+			try {
+				result = typeof res === 'string' ? JSON.parse(res) : res;
+			} catch(e) {
+				result = false;
+			}
+			return result;
+		},
+		requestList: ((function() {
+		
+			var split = '/';
+			
+			return {
+				"getUserInfo": [url, 'api', 'User', 'getUserInfo'].join(split),
+				"getCoupon": [url, 'api', 'ShakeRuleNew', 'first'].join(split),
+				"getCode": [url, 'api', 'Verify', 'sendSms'].join(split),
+				"getCouponLogged": [url, 'api', 'ShakeRuleNew', 'nologin'].join(split),
+				"getQRCode": [url, 'api', 'user', 'genCode'].join(split)
+			};
+		})()),
+		showTextList: {
+			'networkErrors': '网络不行，请重试',
+			'onlyPhone': '请在手机下使用',
+			'nonsupport': '您的设备不支持摇一摇',
+			'paramError': '返回的数据无效，请重试',
+			'validatePhoneError': '输入手机号无效，请重新输入',
+			'validateCode': '验证码格式错误，请重新输入',
+			'lastShakeText': '明天再摇，好习惯早养成！'
+		},
+		shakeCoupon: [
+			'满减券',
+			'立减券'
+		],
+		shakeUseEnv: [
+			'全场通享',
+			'门店专享',
+			'外卖专享'
+		],
+		checkUser: function(callBack) {
+			
+			var _param = {
+				user_id: shakeLibrary.commonable.uuid,
+				token: shakeLibrary.commonable.token
+			},
+			successFn = function(res) {
+				
+				res = shakeLibrary.changeToJSON(res);
+				
+				if (shakeLibrary.responseHasErrorData({res: res})) {
+					return false;
+				}
+				
+				if (parseInt(res.code) != 0) {
+					typeof callBack === 'function' && callBack(res);
+				} else {
+					$.alert(res.msg);
+				}
+			};
+			
+			$.ajax({
+				url: shakeLibrary.requestList.getUserInfo,
+				type: 'POST',
+				data: _param,
+				success: successFn,
+				error: shakeLibrary.responseError()
+			});
+
+		},
+		setUserStatus: function(options) {
+			this.commonable = this.commonable || {};
+			this.commonable.uuid = options.uuid;
+			this.commonable.token = options.token;
+			localStorage.setItem('commonable', JSON.stringify(this.commonable));
+		},
+		resetUserStatus: function(res) {
+			delete this.commonable;
+			localStorage.removeItem('commonable');
+			
+			if (res && typeof res.msg === 'string' && res.msg !== '') {
+				shake.flag = false;
+				$.alert(res.msg, function() {
+					shake.flag = true;
+				})
+			}
+		},
+		captureUserStatus: function() {
+			
+			var result = false;
+			try {
+				result = oldCustom();
+			} catch(e) {
+				this.resetUserStatus();				
+			}
+			
+			return result;
+		},
+		changeUserStatus: function() {
+			
+			if (this.captureUserStatus()) {
+				this.commonable = this.changeToJSON(localStorage.getItem('commonable'));
+				if (typeof this.commonable === 'boolean') {
+					resetUserStatus();
+					return false;
+				} else {
+					this.checkUser(this.resetUserStatus);
+				}
+				
+			}
+		}
+	}
+
+	function Shake(options) {
+	
+		this.options = {
+			spaceTime: 1000,
+			shakeForce: 20
+		};
+		
+		if (options && typeof options === 'object') {
+			for (var i in options) {
+				if (options.hasOwnProperty(i)) {
+					this.options[i] = options[i];
+				}
+			}
+		}
+		
+		this.init();
+	}
+	
+	Shake.prototype.hasDeviceMotion = function() {
+		return 'ondevicemotion' in window;
+	}
+	
+	Shake.prototype.reset = function() {
+		this.flag = true;
+		this.startTime = shakeLibrary.getCurrentTime();
+		this.shakingDuration = 2000;
+		this.stepLists = [
+			"un-shake-first-step-one",
+			"un-shake-first-step-two",
+			"shake-second",
+			"shake-more",						
+			"in-shake"
+		]
+		this.shakeTimes = parseInt(shakeLibrary.getCookieValue('shaketimes')) || 0;
+		this.maxShakeTimes = 1;
+		this.hasBindEvent = false;
+		this.phone = 0;		
+		this.msgFlag = true;
+		this.couponHTML = '';
+		this.timeout = 15000;		
+		this.qrCodeHasShow = false;		
+		this.data = {};		
+		this.page = $('#shakeDefault');		
+		this.pop = $('#shakePop');		
+		this.qrCodeCnt = '';
+		this.defaultAudio = document.getElementById('audioDefault');
+		this.getAudio = document.getElementById('audioGet');
+		this.missAudio = document.getElementById('audioMiss');
+		this.tplgetphone = document.getElementById('tplGetPhone');
+		this.tplgetcode = document.getElementById('tplGetCode');
+		this.tplloggedin = document.getElementById('tplLoggedin');
+		this.tplcoupon = document.getElementById('tplCoupon');
+		this.tplagain = document.getElementById('tplAgain');	
+	}
+	
+	Shake.prototype.startShake = function(e) {
+		
+		if (!(typeof e === 'object')) {
+			$.alert(shakeLibrary.showTextList.onlyPhone , function() {
+				$.router.back();
+			});			
+			return false;
+		}
+		
+		var acceleration = e.accelerationIncludingGravity,
+			diffX,
+			diffY,
+			diffZ;
+		
+		if (this.endX == undefined && this.endY == undefined && this.endZ == undefined) {
+			this.endX = acceleration.x;
+			this.endY = acceleration.y;
+			this.endZ = acceleration.z;
+			return false;
+		}
+		
+        diffX = Math.abs(this.endX - acceleration.x);
+        diffY = Math.abs(this.endY - acceleration.y);
+        diffZ = Math.abs(this.endZ - acceleration.z);
+				
+		if ((diffX > this.options.shakeForce && diffY > this.options.shakeForce) || (diffX > this.options.shakeForce && diffZ > this.options.shakeForce) || (diffY > this.options.shakeForce && diffZ > this.options.shakeForce)) {
+			
+			var endTime = shakeLibrary.getCurrentTime()
+			if (endTime - this.startTime > this.options.spaceTime) {
+				this.startTime = endTime;				
+				typeof this.options.callBack === 'function' && this.flag && this.options.callBack();				
+			}			
+		}
+		
+		this.endX = acceleration.x;
+		this.endY = acceleration.y;
+		this.endZ = acceleration.z;
+		
+	}
+	
+	Shake.prototype.init = function() {
+		
+		if (!this.hasDeviceMotion()) {
+			$.alert(shakeLibrary.showTextList.nonsupport , function() {
+				$.router.back();
+			});
+			return false;
+		} else {
+			this.reset();
+			window.addEventListener('devicemotion', shakeLibrary.bind(this, this.startShake) , false);
+		}
+	}
+	
+	var playShakeAudio = function() {
+		shake.defaultAudio.play();
+	},
+	
+	playShakeGetAudio = function() {
+		shake.getAudio.play();
+	},
+	
+	playShakeMissAudio = function() {
+		shake.missAudio.play();
+	},
+	
+	shakeStartAnimate = function() {
+		shake.page.addClass('shake-page');
+	},
+	
+	shakeStopAnimate = function() {
+		shake.page.removeClass('shake-page');
+	},
+	
+	afterWaitingExecution = function(options) {
+
+		var run = function() {
+
+			window.clearInterval(timer);
+			timer = null;
+			options.callBackFn();
+		},
+			timer;
+
+		return ((typeof options === 'object') && (!!(timer = window.setInterval(run, options.time))));
+		
+	}	
+	shakeRequest = function() {
+	
+		var _device = device(),
+		resetFlag = function() {
+			shake.flag = true;
+		},
+		errorFn = function() {
+			resetFlag();
+			shakeStopAnimate();
+			playShakeMissAudio();
+		},
+		successFn = function(res) {
+			
+			var _data,
+				_use_type,
+				_getphone_html;
+			
+			res = shakeLibrary.changeToJSON(res);
+			//模拟数据开始
+			res = {
+				code: 0,
+				data: {
+					coupon_type: 0,
+					full_money: 20,
+					money: 3,
+					use_type: 0,
+					total_person: 21312,
+					total_money: 123123123,
+					coupon_value:'1231231231',
+					phone: 13522183231,
+					shaketimes: 0
+				},				
+				msg: '数据出错'
+				
+			};
+			//模拟数据结束
+
+			if (shakeLibrary.responseHasErrorData({res: res ,callBack: errorFn})) {
+				return false;
+			}
+			
+			shakeStopAnimate();
+			shake.data = res.data;
+
+			if (res.data.shaketimes && parseInt(res.data.shaketimes) >= shake.maxShakeTimes) {
+				checkPop(res.data.shaketimes);
+			} else {
+				if (parseInt(res.code) === 0) {
+					
+					_use_type = parseInt(res.data.use_type);		
+					res.data.coupon_type_des = parseInt(res.data.coupon_type) === 0 ? shakeLibrary.shakeCoupon[0] : shakeLibrary.shakeCoupon[1];				
+					
+					if (_use_type === 0) {
+						res.data.use_type_des = shakeLibrary.shakeUseEnv[0];
+					} else if (_use_type === 1) {
+						res.data.use_type_des = shakeLibrary.shakeUseEnv[1];
+					} else if (_use_type === 2) {
+						res.data.use_type_des = shakeLibrary.shakeUseEnv[2];
+					}
+					
+					shake.couponHTML = tpl(shake.tplcoupon.innerHTML, res.data);
+					
+					/*shakeLibrary.commonable === 'object' && typeof shakeLibrary.commonable.uuid === 'string' && typeof shakeLibrary.commonable.token === 'string'*/
+					if (shakeLibrary.captureUserStatus() && res.data.phone !== undefined) {
+						shake.data.user_phone = shake.phone = res.data.phone;			 
+						lastPop();
+					} else {
+						
+						if (shake.shakeTimes === 0) {
+							playShakeGetAudio();
+							shake.pop.append(shake.tplgetphone.innerHTML);						
+							$('#popPhone').prepend(shake.couponHTML);
+							shake.currentClassName = shake.stepLists[0];
+						}
+						
+						shake.page.addClass(shake.currentClassName);
+					}
+					
+					shake.shakeTimes++;
+					shakeLibrary.addCookieValue('shaketimes', shake.shakeTimes, shakeLibrary.getRemainTime());
+				} else {
+					playShakeMissAudio();
+					$.alert(res.msg, function() {
+						shake.flag = true;
+					});
+				}
+				
+			}
+
+		},
+		responseFn = function(options) {
+			return function(res) {
+				
+				var shakingExcessTime = shake.shakingDuration - shakeLibrary.diffTime(startShakingTime);
+				var runCallBackFn = function() {
+				
+					if (typeof options =='object') {
+						(options.success != undefined) && options.success(res);
+						(options.error != undefined) && options.error(res);
+					}
+				};
+								
+				if (shakingExcessTime >= 0) {
+					afterWaitingExecution({
+						time: shakingExcessTime,
+						callBackFn: runCallBackFn
+					});
+				} else {
+					runCallBackFn();
+				}
+			};
+		},
+		startShakingTime,
+		param;
+		
+		if (shake.flag) {
+			shake.flag = false;
+			shake.currentClassName !== undefined && shake.page.removeClass(shake.currentClassName);
+			shakeStartAnimate();
+			playShakeAudio();
+			startShakingTime = shakeLibrary.getCurrentTime();
+			
+			console.log(shake.shakeTimes);
+			if (shake.shakeTimes >= shake.maxShakeTimes) {
+				
+				responseFn({success: function() {
+					checkPop(shake.shakeTimes);
+				}})();
+
+			} else {
+				
+				if (shakeLibrary.captureUserStatus()) {
+					console.log('登录了');
+				} else {
+					console.log('未登录');
+				}
+				_param = {
+					system: _device.os,
+					system_version: _device.osVersion
+				}
+				$.ajax({
+					url: shakeLibrary.requestList.getCoupon,
+					type: 'POST',
+					data: _param,
+					timeout: shake.timeout,
+					success: responseFn({success:successFn}),
+					error: responseFn({error:shakeLibrary.responseError(errorFn)})
+				});			
+			}
+		}
+	},
+	getCode = function() {		
+		
+		$.ajax({
+			url: shakeLibrary.requestList.getCode,
+			type: 'post',
+			timeout: shake.timeout,
+			data: {
+				phone: shake.phone
+			},
+			success: function(res) {
+				res = shakeLibrary.changeToJSON(res);
+				
+				if (shakeLibrary.responseHasErrorData({res: res})) {
+					return false;
+				}
+				
+				if (parseInt(res.code) !== 0) {
+					$.alert(res.msg);
+				}
+			},
+			error: shakeLibrary.responseError
+		});
+	},
+	changeTimeText = function() {
+		
+		var that = this,
+		$that = $(this),
+		timeValue;
+		
+		this.countTime = 5,
+		this.classname = 'txt-second-dis';
+		this.txt = '获取验证码';
+		timeValue = this.countTime;
+		
+		return function() {
+		
+			if (timeValue > 0) {
+				shake.msgFlag = false;
+				var _html = timeValue + 's';
+				$that.html(_html);
+				$that.addClass(that.classname);
+				timer = window.setTimeout(arguments.callee, 1000);
+				timeValue--;                
+			} else {
+				window.clearTimeout(timer);
+				shake.msgFlag = true;
+				timer = null;
+				that.flag = true;
+				$that.html(that.txt);
+				$that.removeClass(that.classname);				
+				timeValue = that.countTime;
+			}
+		}
+	},
+	closeCurrentPop = function() {
+	
+		if (shake.currentClassName) {
+			
+			if (shake.qrCodeHasShow) {
+				shake.qrCodeCnt.hide();
+				shake.qrCodeHasShow = false;
+			} else {				
+				shake.page.removeClass(shake.currentClassName);
+				shake.flag = true;
+			}			
+		} else {
+			$(this).parents('.shake-mask').hide();
+		}
+	},
+	changeCode = function() {
+	
+		var $btn_time = $('.txt-second'),
+			ele = $btn_time[0];
+		
+		ele.flag == undefined && (ele.flag = true);
+		
+		if (ele.flag) {
+			ele.flag = false;
+			changeTimeText.call(ele)();		
+			//getCode()
+		}
+		
+	},
+	sendPhone = function() {
+		
+		var _phone_val = $('.txt-phone').val();
+		
+		if (this.flag != undefined && !this.flag) {
+			return false;
+		}
+				
+		this.flag = false;		
+		
+		if (RE[1].test(_phone_val)) {
+			shake.data.user_phone = shake.phone = _phone_val;			 
+			shake.pop.append(tpl(shake.tplgetcode.innerHTML, shake.data));
+			shake.page.removeClass(shake.currentClassName);
+			shake.currentClassName = shake.stepLists[1];
+			shake.page.addClass(shake.currentClassName);
+			changeCode();
+		} else {
+			$.alert(shakeLibrary.showTextList.validatePhoneError);
+		}
+		
+		this.flag = true;
+	},
+	lastPop = function() {
+		shake.pop.append(tpl(shake.tplloggedin.innerHTML, shake.data));
+		$('#popLogged').prepend(shake.couponHTML);
+		shake.qrCodeCnt = $('#userQrCode');
+		shake.currentClassName !== undefined && shake.page.removeClass(shake.currentClassName);
+		shake.currentClassName = shake.stepLists[4];
+		shake.page.addClass(shake.currentClassName);
+	},
+	checkPop = function(shaketimes) {
+		if (shaketimes === shake.maxShakeTimes) {
+			shake.currentClassName = shake.stepLists[2];
+			shake.pop.append(shake.tplagain.innerHTML);	
+		} else if (shaketimes > shake.maxShakeTimes){
+			shake.currentClassName = shake.stepLists[3];						
+			$.alert(shakeLibrary.showTextList.lastShakeText, function() {
+				shake.flag = true;
+				locationClearCache('index.html');
+			});
+		}
+						
+		shakeStopAnimate();
+		playShakeMissAudio();
+		shake.page.addClass(shake.currentClassName);
+		shake.shakeTimes = shaketimes;
+		shake.shakeTimes++;		
+		shakeLibrary.addCookieValue('shaketimes', shake.shakeTimes, shakeLibrary.getRemainTime());
+	},
+	getCouponAndLogin = function() {
+		
+		var _code_val = $('.txt-code').val(),
+		that = this;
+		
+		if (that.flag != undefined && !this.flag) {
+			return false;
+		}
+		
+		if (_code_val === '' || isNaN(parseInt(_code_val)) ||  _code_val.length !== 4) {
+			$.alert(shakeLibrary.showTextList.validateCode)
+			return false;
+		}
+		
+		that.flag = false;
+		$.ajax({
+			url: shakeLibrary.requestList.getCouponLogged,
+			type: 'post',
+			timeout: shake.timeout,
+			data: {
+				mobile: shake.phone,
+				code: _code_val,
+				tag: 'timelimit',
+				model_id: '',
+				private_key: '',
+				channel: ''
+			},
+			success: function(res) {
+				res = shakeLibrary.changeToJSON(res);
+				
+				if (shakeLibrary.responseHasErrorData({res: res, callBack: function() {that.flag = true;}})) {
+					return false;
+				}
+				
+				//模拟数据开始
+				res = {
+					code: 0,
+					data: {
+						uuid: 'd726ed7f-5ec3-4ff9-8fae-2fe7f809af55',
+						token: '7fbd8018-6f58-2151-7423-c90cf2c868be'
+					},
+					msg: '你今天摇嗨次数已经用完！明天再来'
+				};
+				//模拟数据结束
+				
+				if (parseInt(res.code) === 0) {
+					shakeLibrary.setUserStatus({
+						uuid: res.data.uuid,
+						token: res.data.token
+					});
+					lastPop();
+					that.flag = true;
+				} else {
+					$.alert(res.msg, function() {that.flag = true;});
+				}
+			},
+			error: shakeLibrary.responseError
+		});
+	},
+	showUserCode = function() {
+		
+		if (shake.phone != undefined) {			
+			
+			var _img_html = '<img src="' + shakeLibrary.requestList.getQRCode + '?mobile=' + shake.phone + '" >';
+			shake.qrCodeCnt.html(_img_html);
+			shake.qrCodeCnt.show();
+			shake.qrCodeHasShow = true;
+		} else {
+			$.alert(paramError);
+		}
+	};
+	
+	shakeInitCallBack = function() {
+		shakeRequest();
+		
+		if (!shake.hasBindEvent) {
+			$(document).on('click', '.btn-close', closeCurrentPop);
+			$(document).on('click', '.btn-set-phone', sendPhone);
+			$(document).on('click', '.txt-second', changeCode);
+			$(document).on('click', '.btn-post-code', getCouponAndLogin);
+			$(document).on('click', '.btn-user-code', showUserCode);
+			shake.hasBindEvent = true;
+		}
+		
+	};
+	
+	
+	//shakeLibrary.changeUserStatus();
+	shake = new Shake({callBack: shakeInitCallBack});	
+
+})
+</script>
+</body>
+</html>

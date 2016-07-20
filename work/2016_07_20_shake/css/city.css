@@ -1,0 +1,74 @@
+.city_mask, .birthday_mask{
+	width:100%;
+	height: 100%;
+	position: absolute;
+	top:0;
+	left:0;
+	background: rgba(0,0,0,.6);
+	z-index: 9999;
+	display: none;
+}
+.city_stage, .birthday_stage {
+	width: 86%;
+	height: 8.5rem;
+	background: #fff;
+	border-radius: .25rem;
+	top: 0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin: auto;
+	position: absolute;
+}
+.city_showbox, .birthday_showbox {
+	width: 100%;
+	height: 6rem;
+	overflow: hidden;
+	position: relative;
+}
+.city_showbox>ul, .birthday_showbox ul {
+	width:33%;
+	list-style: none;
+	padding: 0;
+	margin:0;
+	position: absolute;
+	z-index: 100;
+}
+.city_showbox>ul>li,.birthday_showbox li {
+	width:100%;
+	height:2rem;
+	line-height:2rem;
+	text-align: center;
+	white-space:nowrap; 
+	overflow: hidden;
+	font-size: 0.8rem;
+	color: #333;
+}
+.city_pannel, .birthday_pannel {
+	width:100%;
+	margin-top: .3rem;
+	border-top: 1px solid #e7e7e7;
+}
+.city_pannel > span, .birthday_pannel span {
+	display: block;
+	width: 50%;
+	height:2rem;
+	float: left;
+	border-right: 1px solid #e7e7e7;
+	border-radius: .3rem;
+	text-align: center;
+	line-height: 2rem;
+}
+.city_ok, .birthday_ok {
+	color: red;
+}
+.city_showbox div, .birthday_showbox div {
+	position: absolute;
+    width: 100%;
+    height: 2rem;
+    box-shadow: 0 1px #e7e7e7 inset,0 1px #e7e7e7;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 10;
+}

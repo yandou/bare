@@ -1,0 +1,11 @@
+body {
+  background: #eee;
+  font-size: 12px; }
+
+p {
+  background: #0982c1; }
+  p p {
+    background: #000;
+    border-radius: 50%; }
+
+/*# sourceMappingURL=map/styletest.css.map */
